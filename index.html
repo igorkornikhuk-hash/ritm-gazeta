@@ -2,64 +2,53 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Газета ТРК «Ритм»</title>
+  <title>Газета Radmir CRMP</title>
   <style>
     body {
-      font-family: Georgia, serif;
-      background: #f4f1ea url('https://i.ibb.co/3Y3tQ0M/paper-texture.jpg');
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: #eee;
       margin: 0;
       padding: 0;
-      color: #222;
     }
     header {
-      background: #8B0000;
-      color: #fff;
+      background: #b22222;
+      padding: 20px;
       text-align: center;
-      padding: 30px 10px;
     }
     header h1 {
       margin: 0;
-      font-size: 3em;
-      letter-spacing: 2px;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-style: italic;
+      color: #fff;
+      text-transform: uppercase;
     }
     nav {
-      background: #333;
-      color: #fff;
-      text-align: center;
+      background: #222;
       padding: 10px;
+      text-align: center;
     }
     nav a {
-      color: #fff;
+      color: #eee;
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
     }
-    .container {
-      max-width: 1000px;
-      margin: 20px auto;
+    nav a:hover {
+      color: #ffcc00;
+    }
+    main {
       padding: 20px;
-      background: rgba(255,255,255,0.9);
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    article {
+      margin-bottom: 30px;
+      border-bottom: 1px solid #444;
+      padding-bottom: 20px;
     }
     h2 {
-      border-bottom: 2px solid #8B0000;
-      padding-bottom: 5px;
-      margin-top: 40px;
-    }
-    .article {
-      margin-bottom: 30px;
-    }
-    .article img {
-      max-width: 100%;
-      margin: 10px 0;
+      color: #ffcc00;
     }
     footer {
-      background: #8B0000;
-      color: #fff;
+      background: #222;
+      color: #aaa;
       text-align: center;
       padding: 15px;
       margin-top: 40px;
@@ -68,66 +57,34 @@
 </head>
 <body>
   <header>
-    <h1>🗞 Газета ТРК «Ритм»</h1>
-    <p>Голос области • Выпуск №1 • 29.09.2025</p>
+    <h1>Газета Radmir CRMP</h1>
+    <p>Новости, хроника и жизнь проекта</p>
   </header>
 
   <nav>
-    <a href="#chronicle">Хроника</a>
-    <a href="#voice">Голос города</a>
-    <a href="#announcements">Афиша</a>
-    <a href="#stories">Сюжеты</a>
-    <a href="#archive">Архив</a>
+    <a href="#">Главная</a>
+    <a href="#">Хроника</a>
+    <a href="#">Игроки</a>
+    <a href="#">Архив</a>
   </nav>
 
-  <div class="container">
-    <section id="chronicle">
-      <h2>📡 Хроника дня</h2>
-      <div class="article">
-        <p><b>11:00</b> — посадка на белый маршрут «Туапсе»</p>
-        <p><b>12:00</b> — прогулка над Обским мостом</p>
-        <p><b>15:00</b> — прибытие в Ялту</p>
-        <img src="https://i.ibb.co/7Q7h6rM/train.jpg" alt="Маршрут Ритм-5">
-      </div>
-    </section>
+  <main>
+    <article>
+      <h2>🔥 Хроника дня</h2>
+      <p>12:00 — ДТП на трассе Арзамас — Батырево</p>
+      <p>14:30 — Открытие нового автосалона в Южном</p>
+      <p>18:00 — Турнир по боксу в спортзале Арзамаса</p>
+    </article>
 
-    <section id="voice">
-      <h2>🎙 Голос города</h2>
-      <div class="article">
-        <blockquote>
-          «Я не вожу вагоны — я везу истории. Каждая остановка — это кадр.»  
-          <br>— Андрей «Трамвайчик», техник 2-го класса
-        </blockquote>
-        <img src="https://i.ibb.co/4V2mX9X/interview.jpg" alt="Интервью">
-      </div>
-    </section>
-
-    <section id="announcements">
-      <h2>📢 Объявления и афиша</h2>
-      <ul>
-        <li>30.09 — набор в Эфирную школу</li>
-        <li>01.10 — конкурс «Цитата месяца»</li>
-      </ul>
-      <img src="https://i.ibb.co/6r3k7fM/poster.jpg" alt="Афиша">
-    </section>
-
-    <section id="stories">
-      <h2>🎭 Сюжетные заметки</h2>
-      <div class="article">
-        <h3>Ночной репортаж из порта</h3>
-        <p><i>Тишина. Контейнеры будто держат дыхание. Свет фонарей режет воду на ленты. Кадр, шаг, шёпот — и город снова слышит себя.</i></p>
-        <img src="https://i.ibb.co/3Y3tQ0M/port.jpg" alt="Порт ночью">
-      </div>
-    </section>
-
-    <section id="archive">
-      <h2>📚 Архив выпусков</h2>
-      <p>Здесь будут ссылки на предыдущие номера.</p>
-    </section>
-  </div>
+    <article>
+      <h2>🎤 Голос игроков</h2>
+      <p><b>Вопрос:</b> Что бы вы добавили на сервер?</p>
+      <p><b>Ответ:</b> «Я бы сделал больше квестов для новичков и добавил систему бизнеса!»</p>
+    </article>
+  </main>
 
   <footer>
-    <p>ТРК «Ритм» — мы не печатаем тексты, мы печатаем голос области.</p>
+    &copy; 2025 Газета Radmir CRMP | Сделано игроками для игроков
   </footer>
 </body>
 </html>
