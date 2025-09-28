@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Газета Radmir CRMP</title>
+  <title>Газета Radmir CRMP | 11 сервер</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -10,16 +10,33 @@
       color: #eee;
       margin: 0;
       padding: 0;
+      animation: fadeIn 1.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
     }
     header {
-      background: #b22222;
+      background: linear-gradient(90deg, #b22222, #8b0000);
       padding: 20px;
       text-align: center;
+      animation: slideDown 1s ease-out;
+    }
+    @keyframes slideDown {
+      from {transform: translateY(-100%);}
+      to {transform: translateY(0);}
     }
     header h1 {
       margin: 0;
       color: #fff;
       text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    header p {
+      margin: 5px 0 0;
+      font-size: 14px;
+      color: #ffcc00;
+      font-weight: bold;
     }
     nav {
       background: #222;
@@ -31,17 +48,24 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s, transform 0.3s;
     }
     nav a:hover {
       color: #ffcc00;
+      transform: scale(1.1);
     }
     main {
       padding: 20px;
+      animation: fadeIn 2s ease-in;
     }
     article {
       margin-bottom: 30px;
       border-bottom: 1px solid #444;
       padding-bottom: 20px;
+      transition: transform 0.3s;
+    }
+    article:hover {
+      transform: scale(1.02);
     }
     h2 {
       color: #ffcc00;
@@ -52,13 +76,14 @@
       text-align: center;
       padding: 15px;
       margin-top: 40px;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Газета Radmir CRMP</h1>
-    <p>Новости, хроника и жизнь проекта</p>
+    <p>11 сервер | Лидер ТРК «Ритм»</p>
   </header>
 
   <nav>
@@ -71,20 +96,20 @@
   <main>
     <article>
       <h2>🔥 Хроника дня</h2>
-      <p>12:00 — ДТП на трассе Арзамас — Батырево</p>
-      <p>14:30 — Открытие нового автосалона в Южном</p>
-      <p>18:00 — Турнир по боксу в спортзале Арзамаса</p>
+      <p>12:00 — ГИБДД на трассе Арзамас — Батырево</p>
+      <p>14:00 — Открытие нового автосалона в Южном</p>
+      <p>18:00 — Сходка байкеров в Южном</p>
     </article>
 
     <article>
       <h2>🎤 Голос игроков</h2>
       <p><b>Вопрос:</b> Что бы вы добавили на сервер?</p>
-      <p><b>Ответ:</b> «Я бы сделал больше квестов для новичков и добавил систему бизнеса!»</p>
+      <p><b>Ответ:</b> «Было бы круто, если бы можно было жениться и добавили систему бизнесов!»</p>
     </article>
   </main>
 
   <footer>
-    &copy; 2025 Газета Radmir CRMP | Сделано игроками для игроков
+    &copy; 2025 Газета Radmir CRMP | 11 сервер | Лидер ТРК «Ритм»
   </footer>
 </body>
 </html>
