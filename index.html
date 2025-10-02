@@ -3,60 +3,112 @@
 <head>
   <meta charset="UTF-8">
   <title>Ритм:Сигнал</title>
-  <link rel="stylesheet" href="assets/style.css">
   <style>
     body {
-      background-color: #0d0d0d;
+      margin: 0;
+      background: radial-gradient(circle at top left, #0f0f0f, #000);
       color: #e0e0e0;
       font-family: 'Courier New', monospace;
-      margin: 0;
-      padding: 0;
+      overflow-x: hidden;
     }
+
     header {
-      background-color: #1a1a1a;
-      padding: 20px;
+      background-color: #111;
+      padding: 30px;
       text-align: center;
-      border-bottom: 2px solid #333;
+      border-bottom: 2px solid #00ffff;
+      animation: pulse 2s infinite;
     }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px #00ffff; }
+      50% { box-shadow: 0 0 20px #00ffff; }
+      100% { box-shadow: 0 0 10px #00ffff; }
+    }
+
     h1 {
-      font-size: 2em;
+      font-size: 2.5em;
       margin: 0;
       color: #00ffff;
+      text-shadow: 0 0 5px #00ffff;
     }
+
     .subtitle {
-      font-size: 0.9em;
+      font-size: 1em;
       color: #888;
+      margin-top: 10px;
     }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #1a1a1a;
+      border-bottom: 1px solid #333;
+    }
+
+    nav a {
+      padding: 15px 25px;
+      color: #00ffff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #00ffff20;
+    }
+
     main {
-      padding: 20px;
+      padding: 30px;
+      animation: fadeIn 1s ease-in;
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     h2 {
       color: #00ffff;
-      font-size: 1.2em;
+      font-size: 1.5em;
       border-bottom: 1px dashed #444;
       padding-bottom: 5px;
+      margin-bottom: 20px;
     }
+
     ul {
       list-style: none;
       padding-left: 0;
     }
+
     li {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
+      background-color: #1a1a1a;
+      padding: 10px;
+      border-left: 4px solid #00ffff;
+      transition: transform 0.2s;
     }
+
+    li:hover {
+      transform: scale(1.02);
+    }
+
     a {
       color: #00ffff;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
     footer {
-      background-color: #1a1a1a;
+      background-color: #111;
       color: #666;
       text-align: center;
-      padding: 10px;
-      border-top: 2px solid #333;
-      font-size: 0.8em;
+      padding: 20px;
+      border-top: 2px solid #00ffff;
+      font-size: 0.9em;
     }
   </style>
 </head>
@@ -66,18 +118,27 @@
     <p class="subtitle">Авторський RP-медіа‑хаб | Сервер 11 | Лідер: Nomi_Murka</p>
   </header>
 
+  <nav>
+    <a href="#">Сигнали</a>
+    <a href="#">Архів</a>
+    <a href="#">Оголошення</a>
+    <a href="#">Меми</a>
+    <a href="#">Про проєкт</a>
+  </nav>
+
   <main>
     <section class="signals">
       <h2>📰 Останні сигнали</h2>
       <ul>
         <li><a href="signals/signal-001.html">Сигнал #001 — Звіт за 01.10.2025</a></li>
-        <!-- Додавай нові сигнали тут -->
+        <li><a href="#">Сигнал #002 — RP-ситуація: «Захоплення ефіру»</a></li>
+        <li><a href="#">Сигнал #003 — Оголошення: набір у редакцію</a></li>
       </ul>
     </section>
   </main>
 
   <footer>
-    <p>© Ритм:Сигнал | Створено лідером ТРК «Ритм»</p>
+    <p>© Ритм:Сигнал | Створено лідером ТРК «Ритм» | GitHub Pages</p>
   </footer>
 </body>
 </html>
