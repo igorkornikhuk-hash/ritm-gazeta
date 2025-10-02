@@ -1,172 +1,83 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="uk">
 <head>
   <meta charset="UTF-8">
-  <title>Газета Radmir CRMP | 11 сервер</title>
+  <title>Ритм:Сигнал</title>
+  <link rel="stylesheet" href="assets/style.css">
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #1a1a1a;
-      color: #fff;
+      background-color: #0d0d0d;
+      color: #e0e0e0;
+      font-family: 'Courier New', monospace;
       margin: 0;
       padding: 0;
-      animation: fadeIn 1.5s ease-in;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0;}
-      to {opacity: 1;}
     }
     header {
-      background: linear-gradient(90deg, #ff6600, #ff8800);
-      padding: 25px;
+      background-color: #1a1a1a;
+      padding: 20px;
       text-align: center;
-      animation: slideDown 1s ease-out;
+      border-bottom: 2px solid #333;
     }
-    @keyframes slideDown {
-      from {transform: translateY(-100%);}
-      to {transform: translateY(0);}
-    }
-    header h1 {
+    h1 {
+      font-size: 2em;
       margin: 0;
-      color: #fff;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      animation: glow 2s infinite alternate;
+      color: #00ffff;
     }
-    @keyframes glow {
-      from {text-shadow: 0 0 5px #ff6600;}
-      to {text-shadow: 0 0 20px #ffaa33;}
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 14px;
-      color: #222;
-      background: #ffcc00;
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 5px;
-      font-weight: bold;
-    }
-    nav {
-      background: #222;
-      padding: 12px;
-      text-align: center;
-    }
-    nav a {
-      color: #fff;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s, transform 0.3s;
-    }
-    nav a:hover {
-      color: #ff6600;
-      transform: scale(1.2);
+    .subtitle {
+      font-size: 0.9em;
+      color: #888;
     }
     main {
       padding: 20px;
     }
-    article {
-      margin-bottom: 30px;
-      border-left: 5px solid #ff6600;
-      padding: 15px;
-      background: #2a2a2a;
-      border-radius: 8px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    article:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 15px #ff6600;
-    }
     h2 {
-      color: #ff8800;
+      color: #00ffff;
+      font-size: 1.2em;
+      border-bottom: 1px dashed #444;
+      padding-bottom: 5px;
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 10px;
+    }
+    a {
+      color: #00ffff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
     }
     footer {
-      background: #111;
-      color: #aaa;
+      background-color: #1a1a1a;
+      color: #666;
       text-align: center;
-      padding: 15px;
-      margin-top: 40px;
-      font-size: 14px;
-    }
-    /* Блок календаря */
-    .calendar {
-      background: #333;
-      padding: 15px;
-      border-radius: 8px;
-      margin-top: 20px;
-    }
-    .calendar h3 {
-      color: #ffcc00;
-    }
-    .calendar ul {
-      list-style: none;
-      padding: 0;
-    }
-    .calendar li {
-      padding: 5px 0;
-      border-bottom: 1px solid #444;
+      padding: 10px;
+      border-top: 2px solid #333;
+      font-size: 0.8em;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Газета Radmir CRMP</h1>
-    <p>11 сервер | Лидер ТРК «Ритм»</p>
+    <h1>📡 Ритм:Сигнал</h1>
+    <p class="subtitle">Авторський RP-медіа‑хаб | Сервер 11 | Лідер: Nomi_Murka</p>
   </header>
 
-  <nav>
-    <a href="#">Главная</a>
-    <a href="#">Хроника</a>
-    <a href="#">Игроки</a>
-    <a href="#">Архив</a>
-    <a href="#comments">Комментарии</a>
-  </nav>
-
   <main>
-    <article>
-      <h2>🔥 Хроника дня</h2>
-      <p>12:00 — ДТП на трассе Арзамас — Батырево</p>
-      <p>14:00 — Открытие нового автосалона в Южном</p>
-      <p>18:00 — Турнир по боксу в спортзале Арзамаса</p>
-    </article>
-
-    <article>
-      <h2>🎤 Голос игроков</h2>
-      <p><b>Вопрос:</b> Что бы вы добавили на сервер?</p>
-      <p><b>Ответ:</b> «Я бы сделал больше квестов для новичков и добавил систему бизнеса!»</p>
-    </article>
-
-    <div class="calendar">
-      <h3>🗓 Редакционный календарь</h3>
+    <section class="signals">
+      <h2>📰 Останні сигнали</h2>
       <ul>
-        <li>Понедельник — Хроника</li>
-        <li>Среда — Голос игроков</li>
-        <li>Пятница — Спецвыпуск</li>
+        <li><a href="signals/signal-001.html">Сигнал #001 — Звіт за 01.10.2025</a></li>
+        <!-- Додавай нові сигнали тут -->
       </ul>
-    </div>
-
-    <div id="comments">
-      <h2>💬 Комментарии и идеи</h2>
-      <!-- Disqus или другой сервис -->
-      <div id="disqus_thread"></div>
-      <script>
-        var disqus_config = function () {
-          this.page.url = window.location.href;
-          this.page.identifier = "radmir-gazeta";
-        };
-        (function() {
-          var d = document, s = d.createElement('script');
-          s.src = 'https://YOUR-DISQUS-SHORTNAME.disqus.com/embed.js';
-          s.setAttribute('data-timestamp', +new Date());
-          (d.head || d.body).appendChild(s);
-        })();
-      </script>
-    </div>
+    </section>
   </main>
 
   <footer>
-    &copy; 2025 Газета Radmir CRMP | 11 сервер | Лидер ТРК «Ритм»
+    <p>© Ритм:Сигнал | Створено лідером ТРК «Ритм»</p>
   </footer>
 </body>
 </html>
