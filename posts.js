@@ -1,33 +1,36 @@
-window.addEventListener('DOMContentLoaded', async () => {
-  const raw = await fetch('./posts.txt').then(r => r.text()).catch(() => '');
-  const lines = raw.split('\n').filter(l => l.trim() && !l.startsWith('#'));
-  const posts = lines.map(line => {
-    const [id, title, date, author, excerpt, content] = line.split('|');
-    return { id, title, date, author, excerpt, content };
-  });
-
-  const container = document.getElementById('threads') || document.getElementById('postsList');
-  const query = document.getElementById('search');
-
-  function render(filter = '') {
-    container.innerHTML = '';
-    posts
-      .filter(p => p.title.toLowerCase().includes(filter.toLowerCase()) || p.excerpt.toLowerCase().includes(filter.toLowerCase()))
-      .forEach(p => {
-        const card = document.createElement('article');
-        card.className = 'card';
-        card.innerHTML = `
-          <h3>${p.title}</h3>
-          <p>${p.excerpt}</p>
-          <small>${p.author} · ${p.date}</small>
+// posts.js
+document.addEventListener("DOMContentLoaded", () => {
+  const postsContainer = document.getElementById('posts-container');
+  fetch('posts.txt?' + new Date().getTime()) // cache-bust
+    .then(response => {
+      if (!response.ok) throw new Error('Ошибка загрузки постов');
+      return response.text();
+    })
+    .then(data => {
+      const postBlocks = data.split('---');
+      let html = '';
+      postBlocks.forEach(raw => {
+        const trimmed = raw.trim();
+        if (!trimmed) return;
+        // парсим каждое поле вручную
+        const titleMatch = trimmed.match(/^Заголовок:\s*(.+)$/m);
+        const authorMatch = trimmed.match(/^Автор:\s*(.+)$/m);
+        const dateMatch = trimmed.match(/^Дата:\s*(.+)$/m);
+        const textMatch = trimmed.match(/^Текст:\s*([\s\S]+)$/m);
+        html += `
+          <div class="post-card animate-fadein">
+            <div class="post-meta">
+              <span class="post-date">${dateMatch ? dateMatch[1] : ''}</span>
+              <span class="post-author">${authorMatch ? authorMatch[1] : ''}</span>
+            </div>
+            <h4 class="post-title">${titleMatch ? titleMatch[1] : 'Без названия'}</h4>
+            <div class="post-text">${textMatch ? textMatch[1].replace(/\n/g, '<br>') : ''}</div>
+          </div>
         `;
-        container.appendChild(card);
       });
-  }
-
-  render();
-
-  if (query) {
-    query.addEventListener('input', () => render(query.value));
-  }
+      postsContainer.innerHTML = html || '<div class="posts-no">Пока нет постов.</div>';
+    })
+    .catch(err => {
+      postsContainer.innerHTML = `<div class="posts-error">Не удалось загрузить посты. Попробуйте позже.</div>`;
+    });
 });
