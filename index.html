@@ -5,89 +5,77 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ТРК «Ритм» — Главная</title>
 
-  <!-- Подключаем шрифт (Google) -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <div class="page">
-    <header class="topbar">
+<body class="light">
+  <header class="site-header">
+    <div class="wrap">
       <div class="brand">
-        <div class="logo-glow">R</div>
-        <div class="brand-text">
-          <div class="title">ТРК <span class="accent">Ритм</span></div>
-          <div class="tag">Авторский медиа‑хаб | Эфиры · Мемы · Редакция</div>
+        <div class="logo-mark">R</div>
+        <div class="brand-meta">
+          <div class="brand-title">ТРК <span class="brand-accent">Ритм</span></div>
+          <div class="brand-sub">Эфиры · Авторские включения · Архив</div>
         </div>
       </div>
 
-      <nav class="nav">
-        <a href="index.html" class="nav-item active">Главная</a>
-        <a href="posts.html" class="nav-item">Эфиры</a>
-        <a href="#memes" class="nav-item">Мемы</a>
-        <a href="#team" class="nav-item">Редакция</a>
+      <nav class="site-nav">
+        <a href="index.html" class="nav-link active">Главная</a>
+        <a href="posts.html" class="nav-link">Эфиры</a>
+        <a href="#memes" class="nav-link">Мемы</a>
+        <a href="#team" class="nav-link">Редакция</a>
       </nav>
-    </header>
+    </div>
+  </header>
 
-    <main class="main">
-      <section class="hero">
-        <div class="hero-left">
-          <div class="kicker">Сигнал принят</div>
-          <h1 class="hero-title">Голос области. Эфиры и включения в едином потоке.</h1>
-          <p class="lead">Темная, неоновая сетка — интерфейс для эфира и авторских заметок. Добавляй посты простым текстом, сайт сам їх відобразить.</p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="posts.html">Перейти к эфирам</a>
-            <a class="btn btn-ghost" href="#memes">Открыть мем-блок</a>
-          </div>
-
-          <div class="live-strip">
-            <div class="live-dot"></div>
-            <div class="live-info">
-              <div class="live-title">Сейчас в эфире — Max De Lix</div>
-              <div class="live-meta">Студия · 19:03</div>
-            </div>
-            <div class="pulse-visual" aria-hidden>
-              <span></span><span></span><span></span>
-            </div>
-          </div>
+  <main class="wrap main-hero">
+    <section class="hero-grid">
+      <div class="hero-left">
+        <h1 class="hero-h">Голос области: Эфиры и включения</h1>
+        <p class="hero-lead">Кураторський медіа‑простір: відео, статті й авторські сигнали. Простір для великої візуальної історії.</p>
+        <div class="hero-cta">
+          <a class="btn primary" href="posts.html">Перейти к эфірам</a>
+          <a class="btn outline" href="#memes">Мем-блок</a>
         </div>
 
-        <div class="hero-right">
-          <div class="visual-card">
-            <div class="glow-grid"></div>
-            <svg class="waves" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden>
-              <path d="M0,200 C150,140 350,260 500,200 C650,140 800,200 800,200 L800,400 L0,400 Z" fill="url(#g)"/>
-              <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ffb86b"/><stop offset="1" stop-color="#ff6b6b"/></linearGradient></defs>
-            </svg>
-            <div class="visual-text">Ритм — Эфир</div>
-          </div>
+        <div class="hero-meta">
+          <div class="live">Сейчас в эфире</div>
+          <div class="live-title">Max De Lix — Студийная беседа</div>
+          <div class="live-sub">19:03 · Студия</div>
         </div>
-      </section>
-
-      <section id="memes" class="card-row">
-        <article class="card neon">
-          <h3>Мем-блок</h3>
-          <ul class="meme-list">
-            <li>«Я всегда спокоен как мухи на мертвом удаве.»</li>
-            <li>«Этот глав редактор — лучший худший глав редактор.»</li>
-            <li>«Бетон — великое изобретение человечества.»</li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <h3>Редакция</h3>
-          <p>Ведущие, монтаж, мемщики и эфирные разведчики. Каждый — часть сигнала. Хотите присоединиться? Пишите в объявлениях.</p>
-        </article>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <div>© ТРК «Ритм» — авторский проект</div>
-      <div class="footer-links">
-        <a href="posts.html">Эфиры</a> · <a href="#">Старая версия</a> · <a href="#">Контакты</a>
       </div>
-    </footer>
-  </div>
+
+      <div class="hero-right">
+        <figure class="hero-figure">
+          <img src="images/hero-sample.jpg" alt="Эфир — визуал" />
+          <figcaption>Архивная съемка · Ритм</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="memes" class="cards">
+      <article class="card">
+        <h3>Мем-блок</h3>
+        <p class="muted">Короткі цитати та фрази з ефірів.</p>
+        <ul class="meme-list">
+          <li>«Я всегда спокоен как мухи на мертвом удаве.»</li>
+          <li>«Этот глав редактор — лучший худший глав редактор.»</li>
+          <li>«Бетон — величайшее изобретение человечества.»</li>
+        </ul>
+      </article>
+
+      <article class="card">
+        <h3>Редакция</h3>
+        <p class="muted">Ведущие, монтаж, архів. Пиши оголошення — ми включимо в ефір.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <div>© ТРК «Ритм»</div>
+      <div class="foot-links"><a href="posts.html">Эфиры</a> · <a href="#">Старая версия</a></div>
+    </div>
+  </footer>
 </body>
 </html>
