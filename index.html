@@ -1,49 +1,78 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>ТРК «Ритм» | Официальный СМИ</title>
+  <meta charset="utf-8">
+  <title>ТРК «Ритм» — Главная</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>📡 ТРК «Ритм»</h1>
-    <p class="subtitle">Официальный медиа-портал | Сервер 11 | Лидер: Nomi_Murka</p>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">📡</div>
+      <div>
+        <h1>ТРК «Ритм»</h1>
+        <p class="subtitle">Авторский медиа-хаб | Сервер 11 | Лидер: Nomi_Murka</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html" class="active">Главная</a>
+      <a href="posts.html">Эфиры</a>
+      <a href="#memes">Мемы</a>
+      <a href="#team">Редакция</a>
+    </nav>
   </header>
 
-  <main>
+  <main class="container">
     <section class="hero">
-      <h2>🎙 Добро пожаловать в эфир</h2>
-      <p>ТРК «Ритм» — это не просто СМИ. Это голос области, включения без сценария, мемы без цензуры и атмосфера, которую не подделать.</p>
-    </section>
-
-    <section id="posts" class="section">
-      <h2>📝 Эфирные посты</h2>
-      <ul>
-        <li><a href="posts.html#post-call">📣 Объявление: набор в редакцию</a></li>
-        <li><a href="posts.html#interview-zam">📡 Эфир с замом ТРК — Max De Lix</a></li>
-        <li><a href="posts.html#interview-mvd">📡 Эфир с замом МВД — Артем Густавов</a></li>
-      </ul>
-    </section>
-
-    <section id="memes" class="section">
-      <h2>😹 Мем-блок</h2>
-      <div class="mem-block">
-        <i>«Я всегда спокоен как мухи на мертвом удаве.»</i><br>
-        <i>«Этот глав редактор — лучший худший глав редактор.»</i><br>
-        <i>«Бетон — величайшее изобретение человечества.»</i><br>
-        <i>«Приходьков — это не просто имя, это стиль жизни.»</i>
+      <div class="hero-left">
+        <h2>Сигнал принят</h2>
+        <p class="lead">ТРК «Ритм» — голос области. Эфиры, включения, авторские колонки и мемы в одном месте.</p>
+        <div class="live-now">
+          <div class="live-badge">LIVE</div>
+          <div>
+            <div class="live-title">Max De Lix — Что держит нас, когда всё горит</div>
+            <div class="live-meta">19:03 · Студия ТРК</div>
+          </div>
+        </div>
+        <p class="cta-row">
+          <a class="btn" href="posts.html">Перейти к эфирам</a>
+          <a class="btn ghost" href="#memes">Мем-блок</a>
+        </p>
+      </div>
+      <div class="hero-right">
+        <div class="signal-visual">
+          <svg viewBox="0 0 200 200" class="signal-svg" aria-hidden>
+            <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ffb86b"/><stop offset="1" stop-color="#ff6b6b"/></linearGradient></defs>
+            <circle cx="100" cy="100" r="36" fill="none" stroke="url(#g)" stroke-width="2"/>
+            <g stroke="url(#g)" stroke-width="1" fill="none">
+              <circle cx="100" cy="100" r="48"/>
+              <circle cx="100" cy="100" r="64"/>
+            </g>
+            <rect x="0" y="0" width="200" height="200" fill="transparent"/>
+          </svg>
+        </div>
       </div>
     </section>
 
-    <section id="team" class="section">
-      <h2>👥 Редакция</h2>
-      <p>В составе ТРК «Ритм» — ведущие, архиваторы, мемщики, эфирные разведчики. Каждый из них — часть сигнала.</p>
+    <section id="memes" class="section">
+      <h3>😹 Мем-блок</h3>
+      <div class="mem-block">
+        <blockquote>«Я всегда спокоен как мухи на мертвом удаве.»</blockquote>
+        <blockquote>«Этот глав редактор — лучший худший глав редактор.»</blockquote>
+        <blockquote>«Бетон — величайшее изобретение человечества.»</blockquote>
+      </div>
+    </section>
+
+    <section id="team" class="section small">
+      <h4>👥 Редакция</h4>
+      <p>Ведущие, архиваторы, мемщики и эфирные разведчики. Каждый — часть сигнала.</p>
     </section>
   </main>
 
-  <footer>
-    <p>© ТРК «Ритм» | Официальный СМИ | GitHub Pages</p>
+  <footer class="site-footer">
+    <div>© ТРК «Ритм»</div>
+    <div><a href="posts.html">Эфиры</a> · <a href="#">Стара версия</a></div>
   </footer>
 </body>
 </html>
