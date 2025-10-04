@@ -1,39 +1,80 @@
-<!doctype html>
+<!-- index.html -->
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Echo — форум думок</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ТРК Ритм — Игровая радиостанция Radmir CRMP</title>
+  <meta name="description" content="ТРК Ритм — ваша игровая радиостанция на 11 сервере Radmir CRMP. Новости, эфиры, конкурсы и общение игроков.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
 </head>
-<body>
-  <header>
-    <div class="wrap">
-      <h1 class="logo">Echo</h1>
-      <nav>
-        <a href="./index.html" class="active">Форум</a>
-        <a href="./posts.html">Архів</a>
-      </nav>
+<body class="soft-bg">
+  <header class="main-header animate-fadein">
+    <div class="logo-block">
+      <img src="assets/logo.svg" alt="Логотип ТРК Ритм" class="logo-glow" width="80" height="80">
+      <div>
+        <h1>ТРК Ритм</h1>
+        <span class="server-badge">Radmir CRMP • 11 сервер</span>
+      </div>
     </div>
+    <nav>
+      <a href="index.html" class="active-link">Главная</a>
+      <a href="posts.html">Эфиры и посты</a>
+    </nav>
   </header>
-
-  <main class="wrap">
-    <section class="intro">
-      <h2>Простір для думок і коротких історій</h2>
-      <p>Без тематики. Без реклами. Тільки текст і атмосфера.</p>
+  
+  <main>
+    <section class="hero-section animate-slideup">
+      <div class="hero-content">
+        <h2>Добро пожаловать на ТРК Ритм!</h2>
+        <p class="lead">Реальная радиостанция, свежие новости сервера, розыгрыши, голосовые эфиры и самые яркие мемы нашего сообщества.</p>
+        <div class="hero-actions">
+          <a href="posts.html" class="btn accent-btn animate-hover">Слушать эфиры</a>
+          <a href="posts.html#archive" class="btn soft-btn animate-hover">Архив постов</a>
+        </div>
+      </div>
+      <div class="hero-art animate-bgwaves"></div>
     </section>
 
-    <section id="threads" class="grid">
-      <!-- Заповнюється через posts.js -->
+    <section class="block animate-fadein-delay" id="about">
+      <h3>О нас</h3>
+      <p>
+        <strong>ТРК Ритм</strong> — это открытая игровая медиаплатформа для всех участников 11 сервера Radmir CRMP. Мы освещаем жизнь сервера, проводим радиоефиры, поддерживаем творчество, мемы, разыгрываем подарки и помогаем найти друзей. Присоединяйтесь к нам: в нашем Discord и Telegram вы легко найдете единомышленников, услышите ведущих и сможете участвовать в эфирах!
+      </p>
+    </section>
+
+    <section class="block animate-fadein-delay" id="news">
+      <h3>Последние новости</h3>
+      <div id="latest-posts">
+        <!-- Здесь через JS можно будет динамически отображать свежие анонсы -->
+        <div class="news-placeholder">Нет новостей. Все эфиры и посты — на <a href="posts.html">отдельной странице</a>.</div>
+      </div>
+    </section>
+
+    <section class="block animate-fadein-delay" id="team">
+      <h3>Лидеры и ведущие</h3>
+      <ul class="staff-list">
+        <li>
+          <div class="staff-avatar" style="background-image:url('assets/avatars/mixail_leader.png')"></div>
+          <span class="staff-name">Mixail_Leader <span class="owner-label">Владелец, Главный ведущий</span></span>
+        </li>
+        <li>
+          <div class="staff-avatar" style="background-image:url('assets/avatars/viktor_ananas.png')"></div>
+          <span class="staff-name">Viktor_Ananas <span>Ведущий новостей</span></span>
+        </li>
+      </ul>
     </section>
   </main>
-
-  <footer>
-    <div class="wrap">
-      <small>© Echo</small>
+  
+  <footer class="footer soft-bg animate-fadein-delay">
+    <div>2025 &copy; ТРК Ритм • Radmir CRMP, 11 сервер</div>
+    <div class="footer-links">
+      <a href="https://discord.gg/ваша_ссылка" target="_blank" rel="noopener">Discord</a>
+      <a href="https://t.me/ваш_канал" target="_blank" rel="noopener">Telegram</a>
     </div>
   </footer>
-
-  <script src="./posts.js" defer></script>
+  
+  <div class="bg-waves"></div>
 </body>
 </html>
