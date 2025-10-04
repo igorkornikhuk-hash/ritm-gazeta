@@ -9,42 +9,43 @@
 </head>
 <body class="site-light">
   <div class="wrap">
-    <header class="header header--small">
+    <header class="header header--small" role="banner">
       <div class="brand">
-        <div class="logo-mark">R</div>
+        <div class="logo-mark" aria-hidden="true">R</div>
         <div class="brand-info">
           <div class="brand-title">ТРК <span class="accent">Ритм</span></div>
           <div class="brand-sub">Эфиры · Архив</div>
         </div>
       </div>
-      <nav class="nav">
+      <nav class="nav" role="navigation" aria-label="Меню">
         <a href="index.html" class="nav__link">Главная</a>
         <a href="posts.html" class="nav__link active">Эфиры</a>
       </nav>
     </header>
 
-    <main class="content">
-      <div class="controls">
-        <input id="search" class="search" placeholder="Поиск по гостю, теме или фразе…" />
-        <div class="controls-right">
-          <button id="refresh" class="btn btn--ghost">Обновить</button>
-          <button id="sample" class="btn btn--ghost">Вставить пример</button>
+    <main class="content" role="main">
+      <div class="controls" role="search" aria-label="Поиск эфиров">
+        <input id="search" class="search" placeholder="Поиск по гостю, теме или фразе…" aria-label="Поиск" />
+        <div class="controls-right" role="toolbar" aria-label="Действия">
+          <button id="refresh" class="btn btn--ghost" aria-label="Обновить эфиры">Обновить</button>
+          <button id="sample" class="btn btn--ghost" aria-label="Вставить пример">Вставить пример</button>
         </div>
       </div>
 
-      <div id="posts-container" class="posts-grid">
+      <div id="posts-container" class="posts-grid" role="list">
         <div class="placeholder">Загрузка эфиров…</div>
       </div>
 
-      <p class="note">Новые эфиры добавляются в <code>posts.txt</code>. Блок начинается с символа <strong>📡</strong>. Для стабильности можно использовать <code>posts.json</code>.</p>
-
+      <p class="note">Новые эфиры добавляются в <code>posts.txt</code>. Блок начинается с символа <strong>📡</strong>.</p>
       <a class="back" href="index.html">← Назад</a>
     </main>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div>© ТРК «Ритм»</div>
     </footer>
   </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
 
   <script src="posts.js" defer></script>
 </body>
