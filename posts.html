@@ -1,35 +1,57 @@
-<!doctype html>
+<!-- posts.html -->
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Архів — Echo</title>
-  <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ТРК Ритм — Эфиры и посты</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <script defer src="posts.js"></script>
 </head>
-<body>
-  <header>
-    <div class="wrap">
-      <h1 class="logo">Echo</h1>
-      <nav>
-        <a href="./index.html">Форум</a>
-        <a href="./posts.html" class="active">Архів</a>
-      </nav>
+<body class="soft-bg">
+  <header class="main-header animate-fadein">
+    <div class="logo-block">
+      <img src="assets/logo.svg" alt="Логотип ТРК Ритм" class="logo-glow" width="60" height="60">
+      <div>
+        <h1>ТРК Ритм</h1>
+        <span class="server-badge">Radmir CRMP • 11 сервер</span>
+      </div>
     </div>
+    <nav>
+      <a href="index.html">Главная</a>
+      <a href="posts.html" class="active-link">Эфиры и посты</a>
+    </nav>
   </header>
 
-  <main class="wrap">
-    <input id="search" type="search" placeholder="Пошук..." />
-    <section id="postsList" class="grid">
-      <!-- Заповнюється через posts.js -->
+  <main>
+    <section class="block animate-slideup">
+      <h2>Эфиры и посты</h2>
+      <div class="info-card accent-glow">
+        <p>На этой странице публикуются анонсы эфиров, конкурсные посты, итоги мероприятий и важные новости жизни «ТРК Ритм».</p>
+      </div>
+    </section>
+    
+    <section class="block" id="posts-list">
+      <h3>Лента постов</h3>
+      <div id="posts-container" class="posts-grid">
+        <div class="posts-loading">Загрузка постов...</div>
+      </div>
+    </section>
+    
+    <section class="block" id="archive">
+      <h3>Архив эфиров и постов</h3>
+      <p>Вся история публикаций вашей любимой радиостанции — для вдохновения и ностальгии!</p>
     </section>
   </main>
-
-  <footer>
-    <div class="wrap">
-      <small>© Echo</small>
+  
+  <footer class="footer soft-bg animate-fadein-delay">
+    <div>2025 &copy; ТРК Ритм • Radmir CRMP, 11 сервер</div>
+    <div class="footer-links">
+      <a href="https://discord.gg/ваша_ссылка" target="_blank" rel="noopener">Discord</a>
+      <a href="https://t.me/ваш_канал" target="_blank" rel="noopener">Telegram</a>
     </div>
   </footer>
-
-  <script src="./posts.js" defer></script>
+  <div class="bg-waves"></div>
 </body>
 </html>
