@@ -1,133 +1,153 @@
-// posts.js — надёжный рендерер для posts.txt (поддержка имён, аватарок, копирования и шаринга)
-const POSTS_FILE = 'posts.txt';
+// posts.js — надёжная загрузка + парсер + рендер + UX
+const POSTS_VARIANTS = ['posts.txt', 'posts.md', 'posts.json'];
+const POSTS_FILE_CACHE_BUSTER = '?v=' + Date.now();
 const CONTAINER_ID = 'posts-container';
+const TOAST_ID = 'toast';
 
-async function loadPosts() {
-  const container = document.getElementById(CONTAINER_ID);
-  try {
-    const resp = await fetch(POSTS_FILE + '?v=' + Date.now());
-    if (!resp.ok) throw new Error('Не удалось загрузить posts.txt');
-    const raw = await resp.text();
-    render(raw);
-  } catch (err) {
-    document.getElementById(CONTAINER_ID).innerHTML = '<div class="placeholder">Ошибка загрузки. Проверьте posts.txt</div>';
-    console.error(err);
+async function fetchPostsFile() {
+  for (const name of POSTS_VARIANTS) {
+    try {
+      const res = await fetch(name + POSTS_FILE_CACHE_BUSTER, { cache: 'no-store' });
+      if (!res.ok) continue;
+      const ct = (res.headers.get('content-type') || '').toLowerCase();
+      const text = await res.text();
+      if (name.endsWith('.json')) return { type: 'json', name, data: JSON.parse(text) };
+      return { type: 'text', name, data: text };
+    } catch (e) {
+      // try next
+    }
   }
+  throw new Error('no posts file found');
 }
 
-function normalizeName(name) {
-  return name.trim().replace(/^—\s*/, '').replace(/^Ведущий[:\s]*/i, '').replace(/^Гость[:\s]*/i, '').trim();
+function showToast(text, ms = 1300) {
+  const t = document.getElementById(TOAST_ID);
+  if (!t) return;
+  t.textContent = text;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), ms);
 }
 
-function avatarFor(name, role) {
-  const ch = (name && name[0]) ? name[0].toUpperCase() : (role === 'you' ? 'В' : 'Г');
-  const cls = role === 'you' ? 'avatar--you' : 'avatar--guest';
-  return `<div class="avatar ${cls}">${ch}</div>`;
+function parseTextBlocks(raw) {
+  const blocks = raw.split(/(?=📡)/g).map(b => b.trim()).filter(Boolean);
+  return blocks.map(block => {
+    const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
+    const title = lines.shift();
+    let speaker = '';
+    if (lines[0] && lines[0].startsWith('🎙')) {
+      speaker = lines.shift().replace('🎙', '').trim();
+    }
+    const dialog = lines.map(l => {
+      if (!l) return null;
+      if (l.startsWith('—')) {
+        const raw = l.replace(/^—\s*/, '');
+        const m = raw.match(/^([^:]{1,60}):\s*(.*)$/);
+        if (m) return { name: m[1].trim(), text: m[2].trim() };
+        return { name: null, text: raw };
+      }
+      return { name: null, text: l };
+    }).filter(Boolean);
+    return { title, speaker, dialog };
+  });
 }
 
-function detectRoleAndName(line) {
-  // formats supported: "— Ведущий: текст", "— Artem_Gustatov: текст", "— текст"
-  const trimmed = line.replace(/^—\s*/, '');
-  const nameMatch = trimmed.match(/^([A-Za-zА-Яа-я0-9_\-\. ]{2,40}):\s*(.*)$/);
-  if (nameMatch) {
-    return { name: nameMatch[1].trim(), text: nameMatch[2].trim() };
-  }
-  // if no explicit name, alternate roles
-  return { name: null, text: trimmed };
-}
-
-function render(raw) {
+function renderPostsFromData(dataObj) {
   const container = document.getElementById(CONTAINER_ID);
   container.innerHTML = '';
-  const blocks = raw.split(/(?=📡)/g).map(b => b.trim()).filter(Boolean);
-  const q = (document.getElementById('search')?.value || '').toLowerCase().trim();
+  const query = (document.getElementById('search')?.value || '').toLowerCase().trim();
+
+  let blocks = [];
+  if (dataObj.type === 'json') {
+    // expected format: array of { title, speaker, dialog: [{name,text}, ...] } or simple text elements
+    blocks = Array.isArray(dataObj.data) ? dataObj.data.map(item => {
+      if (typeof item === 'string') {
+        // simple lines — treat as text block
+        return { title: item, speaker: '', dialog: [] };
+      }
+      return {
+        title: item.title || '📡 Пост',
+        speaker: item.speaker || item.host || '',
+        dialog: Array.isArray(item.dialog) ? item.dialog.map(d => typeof d === 'string' ? { name: null, text: d } : d) : []
+      };
+    }) : [];
+  } else {
+    blocks = parseTextBlocks(dataObj.data);
+  }
 
   blocks.forEach(block => {
-    const lines = block.split('\n').map(l => l.trim()).filter(Boolean);
-    if (!lines.length) return;
+    const fullText = (block.title + ' ' + (block.speaker || '') + ' ' + block.dialog.map(d => (d.name||'') + ' ' + d.text).join(' ')).toLowerCase();
+    if (query && !fullText.includes(query)) return;
 
-    const title = lines[0].startsWith('📡') ? lines[0] : '📡 ' + lines[0];
-    let speaker = '';
-    let idx = 1;
-    if (lines[1] && lines[1].startsWith('🎙')) {
-      speaker = lines[1].replace('🎙','').trim();
-      idx = 2;
-    }
-    const dialogLines = lines.slice(idx);
-
-    const fullText = (title + ' ' + speaker + ' ' + dialogLines.join(' ')).toLowerCase();
-    if (q && !fullText.includes(q)) return;
-
-    // build article
     const art = document.createElement('article');
     art.className = 'section-post';
+    art.setAttribute('role', 'listitem');
 
-    const h2 = document.createElement('h2'); h2.textContent = title; art.appendChild(h2);
-    if (speaker) {
-      const meta = document.createElement('div'); meta.className = 'post-meta'; meta.textContent = 'В эфире — ' + speaker; art.appendChild(meta);
+    const h2 = document.createElement('h2'); h2.textContent = block.title; art.appendChild(h2);
+    if (block.speaker) {
+      const meta = document.createElement('div'); meta.className = 'post-meta'; meta.textContent = 'В эфире — ' + block.speaker; art.appendChild(meta);
     }
 
     const post = document.createElement('div'); post.className = 'post-efir';
 
-    // actions
     const actions = document.createElement('div'); actions.className = 'post-actions';
-    const btnToggle = document.createElement('button'); btnToggle.className = 'icon-btn'; btnToggle.textContent = 'Свернуть';
-    const btnCopy = document.createElement('button'); btnCopy.className = 'icon-btn'; btnCopy.textContent = 'Копировать';
-    const btnShare = document.createElement('button'); btnShare.className = 'icon-btn'; btnShare.textContent = 'Поделиться';
+    const btnToggle = document.createElement('button'); btnToggle.className = 'icon-btn'; btnToggle.textContent = 'Свернуть'; btnToggle.setAttribute('aria-label', 'Свернуть реплики');
+    const btnCopy = document.createElement('button'); btnCopy.className = 'icon-btn'; btnCopy.textContent = 'Копировать'; btnCopy.setAttribute('aria-label', 'Копировать текст эфира');
+    const btnShare = document.createElement('button'); btnShare.className = 'icon-btn'; btnShare.textContent = 'Поделиться'; btnShare.setAttribute('aria-label', 'Поделиться эфиром');
     actions.appendChild(btnToggle); actions.appendChild(btnCopy); actions.appendChild(btnShare);
     art.appendChild(actions);
 
-    const dialog = document.createElement('div'); dialog.className = 'dialog';
+    const dialogWrap = document.createElement('div'); dialogWrap.className = 'dialog';
 
-    // alternate role if no explicit names
-    let fallbackRole = 0;
-    dialogLines.forEach(line => {
-      if (!line) return;
-      const parsed = detectRoleAndName(line);
-      const nameDetected = parsed.name;
-      const text = parsed.text;
-      const role = nameDetected ? (parsed.name.toLowerCase().includes('ведущий') ? 'you' : 'guest') : (fallbackRole % 2 === 0 ? 'you' : 'guest');
-      const row = document.createElement('div'); row.className = 'dialog-row ' + (role === 'you' ? 'role-you' : 'role-guest');
-
-      const speakerName = nameDetected ? parsed.name : (role === 'you' ? 'Ведущий' : 'Гость');
-      const avatarHTML = avatarFor(speakerName, role);
-      row.innerHTML = avatarHTML;
-
+    let fallback = 0;
+    block.dialog.forEach(entry => {
+      const role = entry.name ? (entry.name.toLowerCase().includes('ведущ') ? 'you' : 'guest') : (fallback % 2 === 0 ? 'you' : 'guest');
+      const row = document.createElement('div'); row.className = 'dialog-row';
+      const avatar = document.createElement('div'); avatar.className = 'avatar ' + (role === 'you' ? 'avatar--you' : 'avatar--guest');
+      const avatarChar = (entry.name && entry.name[0]) ? entry.name[0].toUpperCase() : (role === 'you' ? 'В' : 'Г');
+      avatar.textContent = avatarChar;
       const body = document.createElement('div'); body.className = 'dialog-body';
-      const nameEl = document.createElement('div'); nameEl.className = 'speaker-name'; nameEl.textContent = speakerName;
-      const bubble = document.createElement('div'); bubble.className = 'bubble'; bubble.textContent = text;
+      const nameEl = document.createElement('div'); nameEl.className = 'speaker-name'; nameEl.textContent = entry.name || (role === 'you' ? 'Ведущий' : 'Гость');
+      const bubble = document.createElement('div'); bubble.className = 'bubble'; bubble.textContent = entry.text;
       body.appendChild(nameEl); body.appendChild(bubble);
-      row.appendChild(body);
-      dialog.appendChild(row);
-
-      fallbackRole++;
+      if (role === 'guest') {
+        // guest on right visually (reverse)
+        row.appendChild(body); row.appendChild(avatar);
+      } else {
+        row.appendChild(avatar); row.appendChild(body);
+      }
+      dialogWrap.appendChild(row);
+      fallback++;
     });
 
-    post.appendChild(dialog);
+    post.appendChild(dialogWrap);
     art.appendChild(post);
     container.appendChild(art);
 
-    // interactivity
+    // interactions
     let collapsed = false;
     btnToggle.addEventListener('click', () => {
       collapsed = !collapsed;
-      dialog.style.display = collapsed ? 'none' : 'block';
+      dialogWrap.style.display = collapsed ? 'none' : 'block';
       btnToggle.textContent = collapsed ? 'Развернуть' : 'Свернуть';
+      showToast(collapsed ? 'Реплики свернуты' : 'Реплики развернуты', 900);
     });
 
     btnCopy.addEventListener('click', async () => {
-      const payload = [title, speaker ? 'В эфире — ' + speaker : '', ...dialogLines].join('\n');
-      try { await navigator.clipboard.writeText(payload); btnCopy.textContent = 'Скопировано'; setTimeout(()=>btnCopy.textContent='Копировать',1200); }
-      catch { alert('Копирование недоступно'); }
+      const payload = [block.title, block.speaker ? 'В эфире — ' + block.speaker : '', ...block.dialog.map(d => (d.name ? d.name + ': ' : '') + d.text)].join('\n');
+      try {
+        await navigator.clipboard.writeText(payload);
+        showToast('Скопировано', 1000);
+      } catch {
+        showToast('Копирование недоступно', 1200);
+      }
     });
 
     btnShare.addEventListener('click', () => {
-      const payload = [title, speaker ? 'В эфире — ' + speaker : '', ...dialogLines].join('\n');
+      const payload = [block.title, block.speaker ? 'В эфире — ' + block.speaker : '', ...block.dialog.map(d => (d.name ? d.name + ': ' : '') + d.text)].join('\n');
       if (navigator.share) {
-        navigator.share({ title: title, text: payload }).catch(()=>{/* ignore */});
+        navigator.share({ title: block.title, text: payload }).catch(()=>{});
       } else {
-        // fallback: open mailto
-        const subject = encodeURIComponent(title);
+        const subject = encodeURIComponent(block.title);
         const body = encodeURIComponent(payload);
         window.open(`mailto:?subject=${subject}&body=${body}`, '_blank');
       }
@@ -139,24 +159,38 @@ function render(raw) {
   }
 }
 
+async function loadPosts() {
+  const container = document.getElementById(CONTAINER_ID);
+  container.innerHTML = '<div class="placeholder">Загрузка...</div>';
+  try {
+    const file = await fetchPostsFile();
+    if (file.type === 'json') {
+      renderPostsFromData({ type: 'json', data: file.data });
+    } else {
+      renderPostsFromData({ type: 'text', data: file.data });
+    }
+  } catch (e) {
+    container.innerHTML = '<div class="placeholder">Ошибка загрузки эфиров. Проверьте наличие posts.txt/posts.json</div>';
+    console.error(e);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('search')?.addEventListener('input', () => loadPosts());
   document.getElementById('refresh')?.addEventListener('click', () => loadPosts());
   document.getElementById('sample')?.addEventListener('click', () => {
-    // local dummy insertion for preview (no file write)
+    // preview sample (local only)
     const container = document.getElementById(CONTAINER_ID);
-    const html = `
-      <article class="section-post">
-        <h2>📡 Примерный эфир</h2>
-        <div class="post-meta">В эфире — Тестовый спикер</div>
-        <div class="post-efir">
-          <div class="dialog">
-            <div class="dialog-row role-you">${avatarFor('Ведущий','you')}<div class="dialog-body"><div class="speaker-name">Ведущий</div><div class="bubble">— Тестовая реплика ведущего.</div></div></div>
-            <div class="dialog-row role-guest">${avatarFor('Гость','guest')}<div class="dialog-body"><div class="speaker-name">Гость</div><div class="bubble">— Ответ гостя в духе Ритма.</div></div></div>
-          </div>
-        </div>
-      </article>`;
-    container.insertAdjacentHTML('afterbegin', html);
+    const sample = `
+📡 Примерный эфир
+🎙 В эфире — Тестовый спикер
+— Ведущий: Добрый вечер, это тестовый эфир.
+— Тестовый спикер: Спасибо, рад быть в эфире.
+`;
+    // prepend sample visually
+    const blocks = parseTextBlocks(sample);
+    renderPostsFromData({ type: 'text', data: sample + '\n' + (document._lastRaw || '') });
+    showToast('Пример добавлен (локально)', 1200);
   });
   loadPosts();
 });
