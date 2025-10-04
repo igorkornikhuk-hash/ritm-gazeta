@@ -3,56 +3,34 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Голос области — Главная</title>
-  <meta name="description" content="Канал разговоров и визуальных историй">
+  <title>Echo — форум думок</title>
   <link rel="stylesheet" href="./style.css">
-  <link rel="icon" href="./assets/favicon.ico">
 </head>
 <body>
-  <header class="site-header">
+  <header>
     <div class="wrap">
-      <a class="brand" href="./index.html">Голос области</a>
-      <nav class="nav">
-        <a href="./index.html" class="nav-link is-active">Главная</a>
-        <a href="./posts.html" class="nav-link">Статьи</a>
+      <h1 class="logo">Echo</h1>
+      <nav>
+        <a href="./index.html" class="active">Форум</a>
+        <a href="./posts.html">Архів</a>
       </nav>
-      <button id="menuToggle" class="menu-toggle" aria-label="Меню">☰</button>
     </div>
   </header>
 
-  <main class="wrap main">
-    <section class="hero">
-      <h1>Голос области — честные эфиры и визуальные истории</h1>
-      <p class="lead">Курируемый независимыми СМИ канал разговоров и плейбеков изменений</p>
+  <main class="wrap">
+    <section class="intro">
+      <h2>Простір для думок і коротких історій</h2>
+      <p>Без тематики. Без реклами. Тільки текст і атмосфера.</p>
     </section>
 
-    <section id="featured" class="grid">
-      <!-- Карточки підвантажаться з posts.js -->
-    </section>
-
-    <aside class="panel">
-      <h3>Реклама</h3>
-      <p>Вкусите, испейте, и снова — откройте для себя заново — tea reemerge.</p>
-    </aside>
-
-    <section class="regions">
-      <h4>Версии проекта</h4>
-      <div class="regions-list">
-        <a class="pill" href="#">ТРК Эфир — Россия</a>
-        <a class="pill" href="#">ТРК Эфир — Украина</a>
-        <a class="pill" href="#">ТРК Эфир — Сербия</a>
-        <a class="pill" href="#">ТРК Эфир — Литва</a>
-      </div>
+    <section id="threads" class="grid">
+      <!-- Заповнюється через posts.js -->
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer>
     <div class="wrap">
-      <small>© Голос области</small>
-      <nav class="footer-nav">
-        <a href="./index.html">Главная</a>
-        <a href="./posts.html">Статьи</a>
-      </nav>
+      <small>© Echo</small>
     </div>
   </footer>
 
