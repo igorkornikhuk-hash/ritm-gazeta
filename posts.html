@@ -3,58 +3,33 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Статьи — Голос области</title>
-  <meta name="description" content="Архив статей и мнений">
+  <title>Архів — Echo</title>
   <link rel="stylesheet" href="./style.css">
-  <link rel="icon" href="./assets/favicon.ico">
 </head>
 <body>
-  <header class="site-header">
+  <header>
     <div class="wrap">
-      <a class="brand" href="./index.html">Голос области</a>
-      <nav class="nav">
-        <a href="./index.html" class="nav-link">Главная</a>
-        <a href="./posts.html" class="nav-link is-active">Статьи</a>
+      <h1 class="logo">Echo</h1>
+      <nav>
+        <a href="./index.html">Форум</a>
+        <a href="./posts.html" class="active">Архів</a>
       </nav>
-      <button id="menuTogglePosts" class="menu-toggle" aria-label="Меню">☰</button>
     </div>
   </header>
 
-  <main class="wrap main">
-    <section class="list-toolbar">
-      <input id="search" type="search" placeholder="Поиск по статьям..." aria-label="Поиск">
-      <select id="sort">
-        <option value="new">Сначала новые</option>
-        <option value="old">Сначала старые</option>
-        <option value="alpha">По названию A→Z</option>
-      </select>
-    </section>
-
-    <section id="postsList" class="posts-list">
-      <!-- Список статей рендерится posts.js -->
-    </section>
-
-    <section class="import-raw">
-      <h4>Источник (posts.txt)</h4>
-      <pre id="rawSource" class="raw"></pre>
+  <main class="wrap">
+    <input id="search" type="search" placeholder="Пошук..." />
+    <section id="postsList" class="grid">
+      <!-- Заповнюється через posts.js -->
     </section>
   </main>
 
-  <footer class="site-footer">
+  <footer>
     <div class="wrap">
-      <small>© Голос области</small>
+      <small>© Echo</small>
     </div>
   </footer>
 
   <script src="./posts.js" defer></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // додаткові UI-події
-      const search = document.getElementById('search');
-      const sort = document.getElementById('sort');
-      search.addEventListener('input', () => window.renderPosts());
-      sort.addEventListener('change', () => window.renderPosts());
-    });
-  </script>
 </body>
 </html>
