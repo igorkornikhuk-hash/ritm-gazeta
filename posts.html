@@ -7,42 +7,44 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="light">
-  <header class="site-header small">
-    <div class="wrap">
+<body class="site-light">
+  <div class="wrap">
+    <header class="header header--small">
       <div class="brand">
         <div class="logo-mark">R</div>
-        <div class="brand-meta">
-          <div class="brand-title">ТРК <span class="brand-accent">Ритм</span></div>
-          <div class="brand-sub">Эфиры · Включения · Архив</div>
+        <div class="brand-info">
+          <div class="brand-title">ТРК <span class="accent">Ритм</span></div>
+          <div class="brand-sub">Эфиры · Архив</div>
         </div>
       </div>
-      <nav class="site-nav">
-        <a href="index.html" class="nav-link">Главная</a>
-        <a href="posts.html" class="nav-link active">Эфиры</a>
+      <nav class="nav">
+        <a href="index.html" class="nav__link">Главная</a>
+        <a href="posts.html" class="nav__link active">Эфиры</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="wrap content">
-    <div class="posts-controls">
-      <input id="search" class="search" placeholder="Поиск по гостю или тексту…" />
-      <div class="actions">
-        <button id="refresh" class="btn outline">Обновить</button>
+    <main class="content">
+      <div class="controls">
+        <input id="search" class="search" placeholder="Поиск по гостю, теме или фразе…" />
+        <div class="controls-right">
+          <button id="refresh" class="btn btn--ghost">Обновить</button>
+          <button id="sample" class="btn btn--ghost">Вставить пример</button>
+        </div>
       </div>
-    </div>
 
-    <div id="posts-container" class="posts-list">
-      <div class="placeholder">Загрузка эфира…</div>
-    </div>
+      <div id="posts-container" class="posts-grid">
+        <div class="placeholder">Загрузка эфиров…</div>
+      </div>
 
-    <p class="note">Редактируйте <code>posts.txt</code> — новый блок начинается с символа <strong>📡</strong>.</p>
-    <a class="back" href="index.html">← Назад</a>
-  </main>
+      <p class="note">Новые эфиры добавляются в <code>posts.txt</code>. Блок начинается с символа <strong>📡</strong>. Для стабильности можно использовать <code>posts.json</code>.</p>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">© ТРК «Ритм»</div>
-  </footer>
+      <a class="back" href="index.html">← Назад</a>
+    </main>
+
+    <footer class="footer">
+      <div>© ТРК «Ритм»</div>
+    </footer>
+  </div>
 
   <script src="posts.js" defer></script>
 </body>
