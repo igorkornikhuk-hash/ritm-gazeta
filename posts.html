@@ -1,53 +1,60 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Эфиры — ТРК «Ритм»</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Статьи — Голос области</title>
+  <meta name="description" content="Архив статей и мнений">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./assets/favicon.ico">
 </head>
-<body class="site-light">
-  <div class="wrap">
-    <header class="header header--small" role="banner">
-      <div class="brand">
-        <div class="logo-mark" aria-hidden="true">R</div>
-        <div class="brand-info">
-          <div class="brand-title">ТРК <span class="accent">Ритм</span></div>
-          <div class="brand-sub">Эфиры · Архив</div>
-        </div>
-      </div>
-      <nav class="nav" role="navigation" aria-label="Меню">
-        <a href="index.html" class="nav__link">Главная</a>
-        <a href="posts.html" class="nav__link active">Эфиры</a>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./index.html">Голос области</a>
+      <nav class="nav">
+        <a href="./index.html" class="nav-link">Главная</a>
+        <a href="./posts.html" class="nav-link is-active">Статьи</a>
       </nav>
-    </header>
+      <button id="menuTogglePosts" class="menu-toggle" aria-label="Меню">☰</button>
+    </div>
+  </header>
 
-    <main class="content" role="main">
-      <div class="controls" role="search" aria-label="Поиск эфиров">
-        <input id="search" class="search" placeholder="Поиск по гостю, теме или фразе…" aria-label="Поиск" />
-        <div class="controls-right" role="toolbar" aria-label="Действия">
-          <button id="refresh" class="btn btn--ghost" aria-label="Обновить эфиры">Обновить</button>
-          <button id="sample" class="btn btn--ghost" aria-label="Вставить пример">Вставить пример</button>
-        </div>
-      </div>
+  <main class="wrap main">
+    <section class="list-toolbar">
+      <input id="search" type="search" placeholder="Поиск по статьям..." aria-label="Поиск">
+      <select id="sort">
+        <option value="new">Сначала новые</option>
+        <option value="old">Сначала старые</option>
+        <option value="alpha">По названию A→Z</option>
+      </select>
+    </section>
 
-      <div id="posts-container" class="posts-grid" role="list">
-        <div class="placeholder">Загрузка эфиров…</div>
-      </div>
+    <section id="postsList" class="posts-list">
+      <!-- Список статей рендерится posts.js -->
+    </section>
 
-      <p class="note">Новые эфиры добавляются в <code>posts.txt</code>. Блок начинается с символа <strong>📡</strong>. Чтобы добавить скриншот — вставьте строку <code>image: images/название.jpg</code> или <code>![](images/название.png)</code> внутри блока.</p>
+    <section class="import-raw">
+      <h4>Источник (posts.txt)</h4>
+      <pre id="rawSource" class="raw"></pre>
+    </section>
+  </main>
 
-      <a class="back" href="index.html">← Назад</a>
-    </main>
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© Голос области</small>
+    </div>
+  </footer>
 
-    <footer class="footer" role="contentinfo">
-      <div>© ТРК «Ритм»</div>
-    </footer>
-  </div>
-
-  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true"></div>
-
-  <script src="posts.js" defer></script>
+  <script src="./posts.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // додаткові UI-події
+      const search = document.getElementById('search');
+      const sort = document.getElementById('sort');
+      search.addEventListener('input', () => window.renderPosts());
+      sort.addEventListener('change', () => window.renderPosts());
+    });
+  </script>
 </body>
 </html>
