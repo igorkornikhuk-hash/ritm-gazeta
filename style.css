@@ -26,7 +26,6 @@ a {
   text-decoration: none;
   transition: color 0.2s;
 }
-
 a:hover {
   color: var(--accent);
   text-decoration: underline;
@@ -50,7 +49,6 @@ a:hover {
   align-items: center;
   gap: 16px;
 }
-
 .logo-glow {
   filter: drop-shadow(0 0 10px var(--accent2));
   background: linear-gradient(135deg,#496ecf 0%, #a0cf60 100%);
@@ -75,7 +73,6 @@ nav {
   gap: 30px;
   margin-right: 10px;
 }
-
 nav a {
   font-size: 1.04em;
   font-weight: 500;
@@ -85,7 +82,6 @@ nav a {
   position: relative;
   transition: background 0.16s, color 0.18s;
 }
-
 nav a.active-link,
 nav a:hover {
   background: var(--accent2);
@@ -102,11 +98,7 @@ nav a:hover {
   position: relative;
   overflow: hidden;
 }
-
-.hero-content {
-  max-width: 530px;
-}
-
+.hero-content { max-width: 530px; }
 .hero-section h2 {
   font-size: 2.3em;
   margin-bottom: 10px;
@@ -114,16 +106,9 @@ nav a:hover {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+.lead { font-size: 1.2em; margin-bottom: 22px; }
 
-.lead {
-  font-size: 1.2em;
-  margin-bottom: 22px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 18px;
-}
+.hero-actions { display: flex; gap: 18px; }
 
 .btn, .accent-btn, .soft-btn {
   display: inline-block;
@@ -139,24 +124,20 @@ nav a:hover {
   outline: none;
   transition: background 0.17s, box-shadow 0.18s, color 0.14s, transform 0.15s;
 }
-
 .accent-btn {
   background: linear-gradient(96deg,#a0cf60 0%, #6ea2f5 100%);
   color: #181d2f;
   box-shadow: 0 3px 22px 0 rgba(160,207,96,0.18);
 }
-
 .accent-btn:hover {
   background: var(--accent2);
   color: #fff;
   transform: scale(1.036);
 }
-
 .soft-btn {
   background: var(--block-bg);
   color: var(--accent2);
 }
-
 .soft-btn:hover {
   background: var(--accent2);
   color: #181d2f;
@@ -169,7 +150,7 @@ nav a:hover {
   margin: 33px 3vw 20px 3vw;
   padding: 28px 4vw 22px 4vw;
   box-shadow: var(--shadow-soft);
-  max-width: 900px;
+  max-width: 1200px;
 }
 
 h1, h2, h3, h4 {
@@ -178,68 +159,24 @@ h1, h2, h3, h4 {
   letter-spacing: 0.6px;
   color: var(--accent);
 }
-
 h1 { font-size: 2.19em; margin: 0; }
 h2 { font-size: 1.55em; margin-bottom: 10px; }
 h3 { font-size: 1.17em; margin-bottom: 8px; }
 h4 { color: var(--accent2); }
 
-.staff-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 32px;
-}
-
-.staff-avatar {
-  width: 57px;
-  height: 57px;
-  border-radius: 50%;
-  box-shadow: 0 2px 12px 0 rgba(135,180,255,0.24);
-  background-size: cover;
-  background-position: center;
-  margin-bottom: 5px;
-}
-
-.staff-name {
-  display: inline-block;
-  font-size: 1.03em;
-  color: var(--text-main);
-}
-.owner-label {
-  font-weight: bold;
-  color: var(--accent);
-  margin-left: 3px;
-}
-
-.info-card {
-  background: rgba(105,158,228,0.13);
-  border-radius: 17px;
-  padding: 16px 23px;
-  margin-bottom: 20px;
-  box-shadow: 0 1px 11px 0 rgba(110,162,245,0.10);
-  color: var(--accent2);
-  font-weight: 500;
-}
-
 /* --- Посты + карточки ---*/
 .posts-grid {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* дві колонки */
   gap: 21px;
   min-height: 64px;
 }
-
 .post-card {
   background: rgba(32,38,66,0.93);
   box-shadow: 0 3px 14px 0 rgba(110,162,245,0.18);
   border-radius: 18px;
-  max-width: 400px;
-  min-width: 260px;
+  width: 100%;          /* займає всю ширину колонки */
   padding: 18px 19px 17px 19px;
-  margin-bottom: 10px;
   border-left: 4px solid var(--accent2);
   animation: fadeIn 1.3s;
 }
@@ -268,7 +205,6 @@ h4 { color: var(--accent2); }
   font-weight: 500;
   padding: 10px;
 }
-
 .posts-error { color: #e05d5f; }
 .posts-no { color: #a0cf60; }
 .news-placeholder { color: #6ea2f5; }
@@ -301,84 +237,4 @@ h4 { color: var(--accent2); }
   color: #0d1b2e;
 }
 
-/* --- Фон та Waves ---*/
-.bg-waves, .hero-art {
-  position: fixed;
-  left: 0; right: 0; top:0; bottom: 0;
-  z-index: 0;
-  pointer-events: none;
-  opacity: 0.25;
-}
-
-.bg-waves {
-  background: radial-gradient(circle at 18% 80%, #a0cf6036 0, #181b2c 99%), 
-              linear-gradient(100deg, #6ea2f565 11%, transparent 75%);
-  animation: gradientMove 11s infinite alternate ease;
-  filter: blur(14px);
-  z-index: 1;
-}
-
-.hero-art {
-  background: linear-gradient(260deg,#8adedc 2%,#a0cf605c 22%,#6ea2f578 62%,transparent 92%);
-  width: 440px;
-  height: 340px;
-  top: 53px;
-  right: 6vw;
-  left: auto;
-  border-radius: 90% 80% 70% 70% / 60% 90% 60% 90%;
-  filter: blur(18px);
-  opacity: 0.32;
-  z-index: 0;
-  animation: blobMove 9s infinite alternate cubic-bezier(.37,1,.78,.87);
-}
-
-/*--- Анімації ---*/
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(32px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInDelay {
-  0% { opacity: 0.0; transform: translateY(25px);}
-  100% { opacity: 1; transform: translateY(0);}
-}
-@keyframes slideUp {
-  0% { opacity: 0; transform: scale(0.95) translateY(40px);}
-  100% { opacity: 1; transform: scale(1) translateY(0);}
-}
-@keyframes glow {
-  0%,100% { box-shadow: 0 0 10px #6ea2f5c5, 0 0 0 transparent; }
-  50% { box-shadow: 0 0 44px #a0cf607d, 0 0 18px #6ea2f5dd; }
-}
-@keyframes gradientMove {
-  0% { background-position: 0 80px, 100% 0; }
-  100% { background-position: 100% 0, 0 100%; }
-}
-@keyframes blobMove {
-  0% { transform: scale(1.06) rotate(-6deg);}
-  100% { transform: scale(1.13) rotate(2deg);}
-}
-.animate-fadein {
-  animation: fadeIn 1.06s;
-}
-.animate-fadein-delay {
-  animation: fadeInDelay 1.36s;
-}
-.animate-slideup {
-  animation: slideUp 1.23s cubic-bezier(.27,1,.56,0.96);
-}
-.animate-bgwaves, .bg-waves {
-  animation: gradientMove 13s infinite alternate ease;
-}
-.logo-glow { animation: glow 7s infinite alternate; }
-.accent-glow { box-shadow: 0 2px 20px 0 #a0cf604d, var(--shadow-soft);}
-.animate-hover:hover { transform: scale(1.04); box-shadow: 0 1px 18px #6ea2f555; }
-
-@media (max-width: 800px) {
-  .main-header, .footer, .block, section.block { padding: 16px 2vw; }
-  .hero-section { flex-direction: column; padding: 29px 2vw 23px 2vw;}
-  .hero-art { width: 90vw; height: 160px; right: 0; top: 140px;}
-  .posts-grid { flex-direction: column; }
-}
-
-::-webkit-scrollbar { width: 9px; background: #343652; }
-::-webkit-scrollbar-thumb { background: #6ea2f593; border-radius: 10px; }
+/* --- Фон
