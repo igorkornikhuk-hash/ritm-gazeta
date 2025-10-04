@@ -8,55 +8,57 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="light">
-  <header class="site-header">
-    <div class="wrap">
+<body class="site-light">
+  <div class="wrap">
+    <header class="header header--home">
       <div class="brand">
         <div class="logo-mark">R</div>
-        <div class="brand-meta">
-          <div class="brand-title">ТРК <span class="brand-accent">Ритм</span></div>
-          <div class="brand-sub">Эфиры · Авторские включения · Архив</div>
+        <div class="brand-info">
+          <div class="brand-title">ТРК <span class="accent">Ритм</span></div>
+          <div class="brand-sub">Эфиры · Видео · Статьи</div>
         </div>
       </div>
 
-      <nav class="site-nav">
-        <a href="index.html" class="nav-link active">Главная</a>
-        <a href="posts.html" class="nav-link">Эфиры</a>
-        <a href="#memes" class="nav-link">Мемы</a>
-        <a href="#team" class="nav-link">Редакция</a>
+      <nav class="nav">
+        <a href="index.html" class="nav__link active">Главная</a>
+        <a href="posts.html" class="nav__link">Эфиры</a>
+        <a href="#memes" class="nav__link">Мемы</a>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="wrap main-hero">
-    <section class="hero-grid">
-      <div class="hero-left">
-        <h1 class="hero-h">Голос области: эфиры и включения</h1>
-        <p class="hero-lead">Кураторский медиа‑пространство: видео, статьи и авторские сигналы. Пространство для визуальной истории и честных разговоров.</p>
-        <div class="hero-cta">
-          <a class="btn primary" href="posts.html">Перейти к эфирaм</a>
-          <a class="btn outline" href="#memes">Мем-блок</a>
+    <main class="hero">
+      <section class="hero-left">
+        <h1 class="hero-title">Голос области — честные эфиры и визуальные истории</h1>
+        <p class="hero-sub">Кураторский медиа‑пространство для важных разговоров и атмосферных включений.</p>
+        <div class="hero-actions">
+          <a class="btn btn--solid" href="posts.html">Перейти к эфирам</a>
+          <a class="btn btn--ghost" href="#memes">Мем-блок</a>
         </div>
 
-        <div class="hero-meta">
-          <div class="live">Сейчас в эфире</div>
-          <div class="live-title">Max De Lix — Студийная беседа</div>
-          <div class="live-sub">19:03 · Студия</div>
+        <div class="live-strip">
+          <div class="live-dot"></div>
+          <div>
+            <div class="live-label">Сейчас в эфире</div>
+            <div class="live-title">Max De Lix — Студийная беседа</div>
+            <div class="live-meta">19:03 · Студия</div>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="hero-right">
-        <figure class="hero-figure">
-          <img src="images/hero-sample.jpg" alt="Эфир — визуал" />
-          <figcaption>Архивная съёмка · ТРК «Ритм»</figcaption>
-        </figure>
-      </div>
-    </section>
+      <aside class="hero-right">
+        <div class="visual-card">
+          <img src="images/hero-sample.jpg" alt="Эфир — визуал">
+          <div class="visual-overlay">
+            <div class="visual-caption">Архивная съёмка · ТРК «Ритм»</div>
+          </div>
+        </div>
+      </aside>
+    </main>
 
     <section id="memes" class="cards">
-      <article class="card">
+      <article class="card card--lg">
         <h3>Мем-блок</h3>
-        <p class="muted">Короткие цитаты и фразы из эфиров.</p>
+        <p class="muted">Лучшие фразы из эфиров</p>
         <ul class="meme-list">
           <li>«Я всегда спокоен как мухи на мёртвом удаве»</li>
           <li>«Этот главред — лучший худший главред»</li>
@@ -66,16 +68,14 @@
 
       <article class="card">
         <h3>Редакция</h3>
-        <p class="muted">Ведущие, монтаж, архив. Хотите попасть в эфир — оставьте объявление.</p>
+        <p class="muted">Ведущие, монтаж, архив. Оставьте объявление — мы включим.</p>
       </article>
     </section>
-  </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
+    <footer class="footer">
       <div>© ТРК «Ритм»</div>
-      <div class="foot-links"><a href="posts.html">Эфиры</a> · <a href="#">Старая версия</a></div>
-    </div>
-  </footer>
+      <div class="footer-links"><a href="posts.html">Эфиры</a> · <a href="#">Контакты</a></div>
+    </footer>
+  </div>
 </body>
 </html>
