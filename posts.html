@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <title>📡 Посты | ТРК «Ритм»</title>
+  <meta charset="utf-8">
+  <title>📡 Эфиры | ТРК «Ритм»</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>📡 Эфиры ТРК «Ритм»</h1>
-    <p class="subtitle">Включения, сигналы, меми і голос области</p>
+  <header class="site-header">
+    <div class="brand">
+      <div class="logo">📡</div>
+      <div>
+        <h1>Эфиры ТРК «Ритм»</h1>
+        <p class="subtitle">Включения, статьи, мнения и голоса области</p>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <a href="index.html">Главная</a>
+      <a href="posts.html" class="active">Эфиры</a>
+      <a href="#memes">Мемы</a>
+    </nav>
   </header>
 
-  <main>
-    <div id="posts-container">Загрузка эфира...</div>
+  <main class="container">
+    <div class="controls">
+      <input id="search" placeholder="Поиск по эфиру, гостю или тексту..." />
+      <button id="refresh" class="btn ghost">Обновить</button>
+    </div>
+
+    <div id="posts-container" class="posts">Загрузка эфира...</div>
+
+    <div class="hint">Добавляй новые посты в файл <code>posts.txt</code>, начинается блок с символа <strong>📡</strong>.</div>
+
+    <a class="back" href="index.html">← Назад на главную</a>
   </main>
 
-  <footer>
-    <p>© ТРК «Ритм» | Раздел «Посты» | GitHub Pages</p>
+  <footer class="site-footer">
+    <div>© ТРК «Ритм» | Раздел «Посты»</div>
   </footer>
 
-  <script src="posts.js"></script>
+  <script src="posts.js" defer></script>
 </body>
 </html>
