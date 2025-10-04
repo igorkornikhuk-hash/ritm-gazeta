@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>Ритм:Сигнал</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       background: radial-gradient(circle at top left, #1a1a1a, #000);
@@ -75,6 +79,11 @@
       border-bottom: 1px dashed #444;
       padding-bottom: 5px;
       margin-bottom: 20px;
+      transition: color 0.3s;
+    }
+
+    h2:hover {
+      color: #ffaa33;
     }
 
     .section {
@@ -115,29 +124,70 @@
       border-top: 2px solid #ff9900;
       font-size: 0.9em;
     }
+
+    .live-now {
+      background-color: #111;
+      border-left: 4px solid #ff9900;
+      padding: 15px;
+      margin: 30px 0;
+      font-size: 1em;
+      color: #ffcc66;
+    }
+
+    .mem-block {
+      background-color: #1a1a1a;
+      border-left: 4px solid #66ccff;
+      padding: 15px;
+      margin: 20px 0;
+      font-style: italic;
+      color: #ccccff;
+    }
+
+    .gallery {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 10px;
+    }
+
+    .gallery img {
+      max-height: 150px;
+      border: 2px solid #ff9900;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
   <header>
     <h1>📡 Ритм:Сигнал 'Beta Test'</h1>
-    <p class="subtitle">Авторский медиа-хаб | Сервер 11 | Лидер: Nomi_Murka </p>
+    <p class="subtitle">Авторский медиа-хаб | Сервер 11 | Лидер: Nomi_Murka</p>
   </header>
 
   <nav>
-    <a href="posts.html">Посты</a>
-    <a href="situations.html">Ситуации</a>
-    <a href="memes.html">Мемы</a>
-    <a href="archive.html">Архив</a>
-    <a href="about.html">О проекте</a>
+    <a href="#posts">Посты</a>
+    <a href="#situations">Ситуации</a>
+    <a href="#memes">Мемы</a>
+    <a href="#archive">Архив</a>
+    <a href="#about">О проекте</a>
   </nav>
 
   <main>
+    <div class="live-now">
+      🎙 Сейчас в эфире: <b>Max De Lix</b><br>
+      📍 Тема: «Что держит нас, когда всё горит»<br>
+      ⏱ Время: 19:03
+    </div>
+
     <section id="posts" class="section">
       <h2>📝 Посты</h2>
       <ul>
         <li><a href="posts.html">Объявление: набор в редакцию</a></li>
-        <li><a href="posts.html">Эфир с замом МВД - Артем Густавов»</a></li>
-        <li><a href="posts.html">Эфир с замом ТРК - Max De Lix»</a></li>
+        <li><a href="posts.html">Эфир с замом МВД — Артем Густавов</a></li>
+        <li><a href="posts.html">Эфир с замом ТРК — Max De Lix</a></li>
       </ul>
     </section>
 
@@ -151,18 +201,20 @@
 
     <section id="memes" class="section">
       <h2>😹 Мемы</h2>
-      <ul>
-        <li><a href="#">В работе»</a></li>
-        <li><a href="#">В работе</a></li>
-      </ul>
+      <div class="mem-block">
+        <i>«Я всегда спокоен как мухи на мертвом удаве.»</i><br>
+        <i>«Этот глав редактор — лучший худший глав редактор.»</i><br>
+        <i>«Бетон — величайшее изобретение человечества.»</i>
+      </div>
     </section>
 
     <section id="archive" class="section">
       <h2>📦 Архив</h2>
-      <ul>
-        <li><a href="#">В работе</a></li>
-        <li><a href="#">В работе</a></li>
-      </ul>
+      <div class="gallery">
+        <img src="images/efir1.jpeg" alt="Эфир 1">
+        <img src="images/efir2.jpeg" alt="Эфир 2">
+        <img src="images/efir3.jpeg" alt="Эфир 3">
+      </div>
     </section>
 
     <section id="about" class="section">
