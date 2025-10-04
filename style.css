@@ -1,15 +1,12 @@
 html {
   scroll-behavior: smooth;
 }
-
 body {
   margin: 0;
-  background: radial-gradient(circle at top left, #1a1a1a, #000);
+  background: radial-gradient(circle at top left, #0f0f0f, #000);
   color: #f0f0f0;
   font-family: 'Courier New', monospace;
-  overflow-x: hidden;
 }
-
 header {
   background-color: #111;
   padding: 30px;
@@ -17,57 +14,25 @@ header {
   border-bottom: 2px solid #ff9900;
   animation: pulse 2s infinite;
 }
-
 @keyframes pulse {
   0% { box-shadow: 0 0 10px #ff9900; }
   50% { box-shadow: 0 0 20px #ff9900; }
   100% { box-shadow: 0 0 10px #ff9900; }
 }
-
 h1 {
-  font-size: 2.5em;
+  font-size: 2.8em;
   margin: 0;
   color: #ff9900;
   text-shadow: 0 0 5px #ff9900;
 }
-
 .subtitle {
   font-size: 1em;
   color: #aaa;
   margin-top: 10px;
 }
-
-nav {
-  display: flex;
-  justify-content: center;
-  background-color: #1a1a1a;
-  border-bottom: 1px solid #333;
-  flex-wrap: wrap;
-}
-
-nav a {
-  padding: 15px 25px;
-  color: #ff9900;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s, color 0.3s;
-}
-
-nav a:hover {
-  background-color: #ff990020;
-  color: #ffffff;
-}
-
 main {
   padding: 30px;
-  animation: fadeIn 1s ease-in;
 }
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
 h2 {
   color: #ff9900;
   font-size: 1.5em;
@@ -75,24 +40,20 @@ h2 {
   padding-bottom: 5px;
   margin-bottom: 20px;
   text-shadow: 0 0 5px #ff9900;
-  animation: glow 2s infinite;
 }
-
-@keyframes glow {
-  0% { text-shadow: 0 0 5px #ff9900; }
-  50% { text-shadow: 0 0 15px #ff9900; }
-  100% { text-shadow: 0 0 5px #ff9900; }
-}
-
 .section {
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
-
+.hero {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-left: 4px solid #ff9900;
+  box-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+}
 ul {
   list-style: none;
   padding-left: 0;
 }
-
 li {
   margin-bottom: 15px;
   background-color: #1a1a1a;
@@ -101,21 +62,25 @@ li {
   box-shadow: 0 0 10px rgba(255, 153, 0, 0.3);
   transition: transform 0.2s, box-shadow 0.3s;
 }
-
 li:hover {
   transform: scale(1.02);
   box-shadow: 0 0 15px rgba(255, 153, 0, 0.6);
 }
-
 a {
   color: #ff9900;
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: underline;
 }
-
+.mem-block {
+  background-color: #1a1a1a;
+  border-left: 4px solid #66ccff;
+  padding: 15px;
+  font-style: italic;
+  color: #ccccff;
+  box-shadow: 0 0 10px rgba(102, 204, 255, 0.3);
+}
 footer {
   background-color: #111;
   color: #666;
@@ -123,14 +88,4 @@ footer {
   padding: 20px;
   border-top: 2px solid #ff9900;
   font-size: 0.9em;
-}
-
-.mem-block {
-  background-color: #1a1a1a;
-  border-left: 4px solid #66ccff;
-  padding: 15px;
-  margin: 20px 0;
-  font-style: italic;
-  color: #ccccff;
-  box-shadow: 0 0 10px rgba(102, 204, 255, 0.3);
 }
