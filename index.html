@@ -1,78 +1,93 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>ТРК «Ритм» — Главная</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Подключаем шрифт (Google) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header">
-    <div class="brand">
-      <div class="logo">📡</div>
-      <div>
-        <h1>ТРК «Ритм»</h1>
-        <p class="subtitle">Авторский медиа-хаб | Сервер 11 | Лидер: Nomi_Murka</p>
+  <div class="page">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo-glow">R</div>
+        <div class="brand-text">
+          <div class="title">ТРК <span class="accent">Ритм</span></div>
+          <div class="tag">Авторский медиа‑хаб | Эфиры · Мемы · Редакция</div>
+        </div>
       </div>
-    </div>
-    <nav class="main-nav">
-      <a href="index.html" class="active">Главная</a>
-      <a href="posts.html">Эфиры</a>
-      <a href="#memes">Мемы</a>
-      <a href="#team">Редакция</a>
-    </nav>
-  </header>
 
-  <main class="container">
-    <section class="hero">
-      <div class="hero-left">
-        <h2>Сигнал принят</h2>
-        <p class="lead">ТРК «Ритм» — голос области. Эфиры, включения, авторские колонки и мемы в одном месте.</p>
-        <div class="live-now">
-          <div class="live-badge">LIVE</div>
-          <div>
-            <div class="live-title">Max De Lix — Что держит нас, когда всё горит</div>
-            <div class="live-meta">19:03 · Студия ТРК</div>
+      <nav class="nav">
+        <a href="index.html" class="nav-item active">Главная</a>
+        <a href="posts.html" class="nav-item">Эфиры</a>
+        <a href="#memes" class="nav-item">Мемы</a>
+        <a href="#team" class="nav-item">Редакция</a>
+      </nav>
+    </header>
+
+    <main class="main">
+      <section class="hero">
+        <div class="hero-left">
+          <div class="kicker">Сигнал принят</div>
+          <h1 class="hero-title">Голос области. Эфиры и включения в едином потоке.</h1>
+          <p class="lead">Темная, неоновая сетка — интерфейс для эфира и авторских заметок. Добавляй посты простым текстом, сайт сам їх відобразить.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="posts.html">Перейти к эфирам</a>
+            <a class="btn btn-ghost" href="#memes">Открыть мем-блок</a>
+          </div>
+
+          <div class="live-strip">
+            <div class="live-dot"></div>
+            <div class="live-info">
+              <div class="live-title">Сейчас в эфире — Max De Lix</div>
+              <div class="live-meta">Студия · 19:03</div>
+            </div>
+            <div class="pulse-visual" aria-hidden>
+              <span></span><span></span><span></span>
+            </div>
           </div>
         </div>
-        <p class="cta-row">
-          <a class="btn" href="posts.html">Перейти к эфирам</a>
-          <a class="btn ghost" href="#memes">Мем-блок</a>
-        </p>
-      </div>
-      <div class="hero-right">
-        <div class="signal-visual">
-          <svg viewBox="0 0 200 200" class="signal-svg" aria-hidden>
-            <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ffb86b"/><stop offset="1" stop-color="#ff6b6b"/></linearGradient></defs>
-            <circle cx="100" cy="100" r="36" fill="none" stroke="url(#g)" stroke-width="2"/>
-            <g stroke="url(#g)" stroke-width="1" fill="none">
-              <circle cx="100" cy="100" r="48"/>
-              <circle cx="100" cy="100" r="64"/>
-            </g>
-            <rect x="0" y="0" width="200" height="200" fill="transparent"/>
-          </svg>
+
+        <div class="hero-right">
+          <div class="visual-card">
+            <div class="glow-grid"></div>
+            <svg class="waves" viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden>
+              <path d="M0,200 C150,140 350,260 500,200 C650,140 800,200 800,200 L800,400 L0,400 Z" fill="url(#g)"/>
+              <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#ffb86b"/><stop offset="1" stop-color="#ff6b6b"/></linearGradient></defs>
+            </svg>
+            <div class="visual-text">Ритм — Эфир</div>
+          </div>
         </div>
+      </section>
+
+      <section id="memes" class="card-row">
+        <article class="card neon">
+          <h3>Мем-блок</h3>
+          <ul class="meme-list">
+            <li>«Я всегда спокоен как мухи на мертвом удаве.»</li>
+            <li>«Этот глав редактор — лучший худший глав редактор.»</li>
+            <li>«Бетон — великое изобретение человечества.»</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <h3>Редакция</h3>
+          <p>Ведущие, монтаж, мемщики и эфирные разведчики. Каждый — часть сигнала. Хотите присоединиться? Пишите в объявлениях.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>© ТРК «Ритм» — авторский проект</div>
+      <div class="footer-links">
+        <a href="posts.html">Эфиры</a> · <a href="#">Старая версия</a> · <a href="#">Контакты</a>
       </div>
-    </section>
-
-    <section id="memes" class="section">
-      <h3>😹 Мем-блок</h3>
-      <div class="mem-block">
-        <blockquote>«Я всегда спокоен как мухи на мертвом удаве.»</blockquote>
-        <blockquote>«Этот глав редактор — лучший худший глав редактор.»</blockquote>
-        <blockquote>«Бетон — величайшее изобретение человечества.»</blockquote>
-      </div>
-    </section>
-
-    <section id="team" class="section small">
-      <h4>👥 Редакция</h4>
-      <p>Ведущие, архиваторы, мемщики и эфирные разведчики. Каждый — часть сигнала.</p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div>© ТРК «Ритм»</div>
-    <div><a href="posts.html">Эфиры</a> · <a href="#">Стара версия</a></div>
-  </footer>
+    </footer>
+  </div>
 </body>
 </html>
