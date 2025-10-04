@@ -1,81 +1,61 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>ТРК «Ритм» — Главная</title>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Голос области — Главная</title>
+  <meta name="description" content="Канал разговоров и визуальных историй">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="./assets/favicon.ico">
 </head>
-<body class="site-light">
-  <div class="wrap">
-    <header class="header header--home" role="banner">
-      <div class="brand">
-        <div class="logo-mark" aria-hidden="true">R</div>
-        <div class="brand-info">
-          <div class="brand-title">ТРК <span class="accent">Ритм</span></div>
-          <div class="brand-sub">Эфиры · Видео · Статьи</div>
-        </div>
-      </div>
-
-      <nav class="nav" role="navigation" aria-label="Главное меню">
-        <a href="index.html" class="nav__link active">Главная</a>
-        <a href="posts.html" class="nav__link">Эфиры</a>
-        <a href="#memes" class="nav__link">Мемы</a>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <a class="brand" href="./index.html">Голос области</a>
+      <nav class="nav">
+        <a href="./index.html" class="nav-link is-active">Главная</a>
+        <a href="./posts.html" class="nav-link">Статьи</a>
       </nav>
-    </header>
+      <button id="menuToggle" class="menu-toggle" aria-label="Меню">☰</button>
+    </div>
+  </header>
 
-    <main class="hero" role="main">
-      <section class="hero-left">
-        <h1 class="hero-title">Голос области — честные эфиры и визуальные истории</h1>
-        <p class="hero-sub">Кураторский медиапространство для важных разговоров и атмосферных включений.</p>
-        <div class="hero-actions">
-          <a class="btn btn--solid" href="posts.html">Перейти к эфирам</a>
-          <a class="btn btn--ghost" href="#memes">Мем-блок</a>
-        </div>
-
-        <div class="live-strip" aria-live="polite">
-          <span class="live-dot" aria-hidden="true"></span>
-          <div>
-            <div class="live-label">Сейчас в эфире</div>
-            <div class="live-title">Max De Lix — Студийная беседа</div>
-            <div class="live-meta">19:03 · Студия</div>
-          </div>
-        </div>
-      </section>
-
-      <aside class="hero-right" aria-hidden="true">
-        <div class="visual-card">
-          <img src="images/hero-sample.jpg" alt="Визуал эфира" loading="lazy">
-          <div class="visual-overlay">
-            <div class="visual-caption">Архивная съёмка · ТРК «Ритм»</div>
-          </div>
-        </div>
-      </aside>
-    </main>
-
-    <section id="memes" class="cards" aria-label="Мем-блок">
-      <article class="card card--lg">
-        <h3>Мем-блок</h3>
-        <p class="muted">Лучшие фразы из эфиров</p>
-        <ul class="meme-list">
-          <li>«Я всегда спокоен как мухи на мёртвом удаве»</li>
-          <li>«Этот главред — лучший худший главред»</li>
-          <li>«Бетон — великое изобретение человечества»</li>
-        </ul>
-      </article>
-
-      <article class="card">
-        <h3>Редакция</h3>
-        <p class="muted">Ведущие, монтаж, архив. Оставьте объявление — мы включим.</p>
-      </article>
+  <main class="wrap main">
+    <section class="hero">
+      <h1>Голос области — честные эфиры и визуальные истории</h1>
+      <p class="lead">Курируемый независимыми СМИ канал разговоров и плейбеков изменений</p>
     </section>
 
-    <footer class="footer" role="contentinfo">
-      <div>© ТРК «Ритм»</div>
-      <div class="footer-links"><a href="posts.html">Эфиры</a> · <a href="#">Контакты</a></div>
-    </footer>
-  </div>
+    <section id="featured" class="grid">
+      <!-- Карточки підвантажаться з posts.js -->
+    </section>
+
+    <aside class="panel">
+      <h3>Реклама</h3>
+      <p>Вкусите, испейте, и снова — откройте для себя заново — tea reemerge.</p>
+    </aside>
+
+    <section class="regions">
+      <h4>Версии проекта</h4>
+      <div class="regions-list">
+        <a class="pill" href="#">ТРК Эфир — Россия</a>
+        <a class="pill" href="#">ТРК Эфир — Украина</a>
+        <a class="pill" href="#">ТРК Эфир — Сербия</a>
+        <a class="pill" href="#">ТРК Эфир — Литва</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <small>© Голос области</small>
+      <nav class="footer-nav">
+        <a href="./index.html">Главная</a>
+        <a href="./posts.html">Статьи</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="./posts.js" defer></script>
 </body>
 </html>
