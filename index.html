@@ -10,33 +10,33 @@
 </head>
 <body class="site-light">
   <div class="wrap">
-    <header class="header header--home">
+    <header class="header header--home" role="banner">
       <div class="brand">
-        <div class="logo-mark">R</div>
+        <div class="logo-mark" aria-hidden="true">R</div>
         <div class="brand-info">
           <div class="brand-title">ТРК <span class="accent">Ритм</span></div>
           <div class="brand-sub">Эфиры · Видео · Статьи</div>
         </div>
       </div>
 
-      <nav class="nav">
+      <nav class="nav" role="navigation" aria-label="Главное меню">
         <a href="index.html" class="nav__link active">Главная</a>
         <a href="posts.html" class="nav__link">Эфиры</a>
         <a href="#memes" class="nav__link">Мемы</a>
       </nav>
     </header>
 
-    <main class="hero">
+    <main class="hero" role="main">
       <section class="hero-left">
         <h1 class="hero-title">Голос области — честные эфиры и визуальные истории</h1>
-        <p class="hero-sub">Кураторский медиа‑пространство для важных разговоров и атмосферных включений.</p>
+        <p class="hero-sub">Кураторский медиапространство для важных разговоров и атмосферных включений.</p>
         <div class="hero-actions">
           <a class="btn btn--solid" href="posts.html">Перейти к эфирам</a>
           <a class="btn btn--ghost" href="#memes">Мем-блок</a>
         </div>
 
-        <div class="live-strip">
-          <div class="live-dot"></div>
+        <div class="live-strip" aria-live="polite">
+          <span class="live-dot" aria-hidden="true"></span>
           <div>
             <div class="live-label">Сейчас в эфире</div>
             <div class="live-title">Max De Lix — Студийная беседа</div>
@@ -45,9 +45,9 @@
         </div>
       </section>
 
-      <aside class="hero-right">
+      <aside class="hero-right" aria-hidden="true">
         <div class="visual-card">
-          <img src="images/hero-sample.jpg" alt="Эфир — визуал">
+          <img src="images/hero-sample.jpg" alt="Визуал эфира" loading="lazy">
           <div class="visual-overlay">
             <div class="visual-caption">Архивная съёмка · ТРК «Ритм»</div>
           </div>
@@ -55,7 +55,7 @@
       </aside>
     </main>
 
-    <section id="memes" class="cards">
+    <section id="memes" class="cards" aria-label="Мем-блок">
       <article class="card card--lg">
         <h3>Мем-блок</h3>
         <p class="muted">Лучшие фразы из эфиров</p>
@@ -72,7 +72,7 @@
       </article>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
       <div>© ТРК «Ритм»</div>
       <div class="footer-links"><a href="posts.html">Эфиры</a> · <a href="#">Контакты</a></div>
     </footer>
