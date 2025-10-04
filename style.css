@@ -1,8 +1,15 @@
-/* Reset & variables */
+/* Переработанный светлый стиль, более мягкий белый и аккуратные диалоги */
 :root{
-  --bg:#fafafa; --paper:#ffffff; --muted:#6b7280; --accent:#ff7a3d; --accent-2:#2fb7ff;
-  --text:#0b1220; --radius:14px; --glass: rgba(11,18,32,0.04);
-  --serif:'Playfair Display', serif; --ui:'Inter', system-ui, -apple-system, sans-serif;
+  --bg:#f7f8fa;             /* мягкий фон */
+  --paper:#ffffff;          /* карточки */
+  --muted:#757f88;         /* сдержанный серый */
+  --accent:#ff7a3d;         /* основной акцент */
+  --accent-2:#2fb7ff;       /* вспомогательный */
+  --text:#0e151b;           /* основной текст */
+  --radius:14px;
+  --serif:'Playfair Display', serif;
+  --ui:'Inter', system-ui, -apple-system, sans-serif;
+  --bubble-light: rgba(14,21,27,0.03); /* тёплый светлый пузырёк */
 }
 *{box-sizing:border-box}
 html,body{height:100%}
@@ -10,7 +17,7 @@ body{margin:0;font-family:var(--ui);color:var(--text);background:linear-gradient
 .wrap{max-width:1100px;margin:0 auto;padding:20px}
 
 /* header */
-.site-header{background:transparent;padding:18px 0;border-bottom:1px solid rgba(11,18,32,0.04)}
+.site-header{background:transparent;padding:18px 0;border-bottom:1px solid rgba(14,21,27,0.04)}
 .site-header.small{padding:12px 0}
 .brand{display:flex;gap:14px;align-items:center}
 .logo-mark{width:54px;height:54px;border-radius:10px;background:linear-gradient(180deg,var(--accent),#ff5b5b);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-family:var(--serif);font-size:20px}
@@ -19,7 +26,7 @@ body{margin:0;font-family:var(--ui);color:var(--text);background:linear-gradient
 .brand-sub{font-size:13px;color:var(--muted);margin-top:4px}
 .site-nav{display:flex;gap:12px;align-items:center;margin-left:auto}
 .nav-link{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
-.nav-link.active{color:var(--text);background:rgba(11,18,32,0.02)}
+.nav-link.active{color:var(--text);background:rgba(14,21,27,0.03)}
 
 /* hero */
 .main-hero{padding-top:30px}
@@ -29,10 +36,10 @@ body{margin:0;font-family:var(--ui);color:var(--text);background:linear-gradient
 .hero-cta{margin-top:18px;display:flex;gap:12px}
 .btn{display:inline-block;padding:10px 14px;border-radius:10px;text-decoration:none;font-weight:700}
 .btn.primary{background:linear-gradient(90deg,var(--accent),#ff5b5b);color:#fff}
-.btn.outline{background:transparent;border:1px solid rgba(11,18,32,0.06);color:var(--text)}
+.btn.outline{background:transparent;border:1px solid rgba(14,21,27,0.06);color:var(--text)}
 
 /* hero media */
-.hero-figure{border-radius:12px;overflow:hidden;background:var(--paper);box-shadow:0 10px 30px rgba(11,18,32,0.06)}
+.hero-figure{border-radius:12px;overflow:hidden;background:var(--paper);box-shadow:0 10px 30px rgba(14,21,27,0.06)}
 .hero-figure img{display:block;width:100%;height:100%;object-fit:cover}
 .hero-meta{margin-top:18px}
 .live{font-size:12px;color:var(--accent-2);font-weight:700}
@@ -41,31 +48,62 @@ body{margin:0;font-family:var(--ui);color:var(--text);background:linear-gradient
 
 /* cards */
 .cards{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:28px}
-.card{background:var(--paper);padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(11,18,32,0.04);border:1px solid rgba(11,18,32,0.03)}
+.card{background:var(--paper);padding:18px;border-radius:12px;box-shadow:0 10px 30px rgba(14,21,27,0.04);border:1px solid rgba(14,21,27,0.03)}
 .card h3{margin:0;color:var(--accent)}
 .meme-list{margin:12px 0 0 18px;color:var(--muted)}
 
 /* posts page */
 .content{padding-top:20px}
 .posts-controls{display:flex;gap:12px;align-items:center;margin-bottom:12px}
-.search{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(11,18,32,0.04);background:#fff}
+.search{flex:1;padding:12px;border-radius:12px;border:1px solid rgba(14,21,27,0.04);background:#fff}
 .actions{display:flex;gap:8px}
 .posts-list{display:flex;flex-direction:column;gap:16px}
-.section-post{background:var(--paper);padding:18px;border-radius:12px;border:1px solid rgba(11,18,32,0.03);box-shadow:0 8px 24px rgba(11,18,32,0.04)}
+.section-post{background:var(--paper);padding:18px;border-radius:12px;border:1px solid rgba(14,21,27,0.03);box-shadow:0 8px 24px rgba(14,21,27,0.04);position:relative}
 .section-post h2{margin:0;font-family:var(--serif);font-size:18px;color:var(--text)}
 .post-meta{color:var(--muted);margin-top:6px;font-size:13px}
-.post-efir{margin-top:12px;padding:12px;border-left:4px solid var(--accent);background:linear-gradient(180deg,#fff,#fafafa);border-radius:8px}
+.post-efir{margin-top:12px;padding:14px;border-radius:12px;background:var(--bubble-light);border-left:4px solid var(--accent)}
+
+/* диалоги — эстетика радиостанции */
 .dialog{margin-top:8px;display:flex;flex-direction:column;gap:10px}
-.dialog .you{align-self:flex-start;background:rgba(255,122,61,0.06);padding:10px;border-radius:8px;color:#3a1a00}
-.dialog .guest{align-self:flex-end;background:rgba(47,183,255,0.06);padding:10px;border-radius:8px;color:#003247}
+.dialog-row{display:flex;gap:12px;align-items:flex-start}
+.speaker {
+  min-width:110px;
+  max-width:160px;
+  padding:8px 10px;
+  border-radius:10px;
+  background:#fff;
+  color:var(--muted);
+  font-weight:600;
+  font-size:13px;
+  box-shadow:0 6px 18px rgba(14,21,27,0.04);
+}
+.bubble {
+  flex:1;
+  padding:12px 14px;
+  border-radius:12px;
+  background:linear-gradient(180deg,#ffffff,#fbfbfb);
+  box-shadow:0 8px 20px rgba(14,21,27,0.04);
+  color:var(--text);
+  line-height:1.5;
+  white-space:pre-wrap;
+}
+
+/* визуальная дифференциация ролей */
+.role-you .speaker{background:linear-gradient(90deg,#fff8f2,#fff)}
+.role-you .bubble{border-left:3px solid rgba(255,122,61,0.12)}
+.role-guest{flex-direction:row-reverse}
+.role-guest .speaker{background:linear-gradient(90deg,#f2fbff,#fff)}
+.role-guest .bubble{border-right:3px solid rgba(47,183,255,0.12)}
+
+/* post actions */
 .post-actions{position:absolute;right:18px;top:18px;display:flex;gap:8px}
-.post-actions button{background:transparent;border:1px solid rgba(11,18,32,0.04);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
+.post-actions button{background:transparent;border:1px solid rgba(14,21,27,0.04);padding:8px 10px;border-radius:8px;color:var(--muted);cursor:pointer}
 
 /* utilities */
 .placeholder{padding:36px;text-align:center;color:var(--muted)}
 .note{color:var(--muted);margin-top:12px}
 .back{display:inline-block;margin-top:18px;color:var(--muted);text-decoration:none}
-.site-footer{padding:28px 0;margin-top:40px;color:var(--muted);border-top:1px solid rgba(11,18,32,0.03)}
+.site-footer{padding:28px 0;margin-top:40px;color:var(--muted);border-top:1px solid rgba(14,21,27,0.03)}
 
 /* responsive */
 @media (max-width:980px){
