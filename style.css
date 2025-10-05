@@ -229,7 +229,7 @@ h4 { color: var(--accent2); }
 .posts-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 21px;
+  gap: 42px;
   min-height: 64px;
 }
 
