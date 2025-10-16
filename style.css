@@ -281,3 +281,60 @@ h4 { color: var(--accent2); }
 .footer {
   display: flex;
   justify-content
+/* Новости */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.news-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.news-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.news-card h4 {
+  margin-top: 0;
+}
+
+/* Команда */
+.team-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.team-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform .2s ease;
+}
+.team-card:hover {
+  transform: translateY(-3px);
+}
+.staff-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.staff-info {
+  display: flex;
+  flex-direction: column;
+}
+.staff-name {
+  font-weight: bold;
+}
+.staff-role {
+  font-size: 0.9rem;
+  color: #666;
+}
