@@ -394,3 +394,50 @@ h4 { color: var(--accent2); }
   font-size: 1rem;
   margin-left: 1rem;
 }
+/* Посты */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+.post-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.post-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.post-card h4 {
+  margin-top: 0;
+}
+.post-date {
+  display: block;
+  margin-top: .5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Архив */
+.archive-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 0;
+  display: flex;
+  gap: 1rem;
+}
+.archive-list li a {
+  background: #0f1c2e;
+  color: #e0f7e9;
+  padding: .5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background .2s ease;
+}
+.archive-list li a:hover {
+  background: #4fe38a;
+  color: #0f1c2e;
+}
