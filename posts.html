@@ -1,18 +1,28 @@
-<!-- posts.html -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ТРК Ритм — Эфиры и посты</title>
+  <meta name="description" content="Эфиры, посты и архив радиостанции ТРК Ритм. Анонсы, конкурсы и итоги мероприятий.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ТРК Ритм — Эфиры и посты">
+  <meta property="og:description" content="Анонсы эфиров, конкурсные посты и архив радиостанции.">
+  <meta property="og:image" content="assets/logo.png">
+  <meta property="og:type" content="website">
+
+  <!-- favicon -->
+  <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="assetslogo.svg" type="image/svg+xml">
   <script defer src="posts.js"></script>
 </head>
 <body class="soft-bg">
   <header class="main-header animate-fadein">
     <div class="logo-block">
-      <img src="assetslogo.svg" alt="Логотип ТРК Ритм" class="logo-glow" width="60" height="60">
+      <img src="assets/logo.svg" alt="Логотип ТРК Ритм" class="logo-glow" width="60" height="60">
       <div>
         <h1>ТРК Ритм</h1>
         <span class="server-badge">Radmir CRMP • 11 сервер</span>
@@ -21,6 +31,8 @@
     <nav>
       <a href="index.html">Главная</a>
       <a href="posts.html" class="active-link">Эфиры и посты</a>
+      <a href="#posts-list">Лента</a>
+      <a href="#archive">Архив</a>
     </nav>
   </header>
 
@@ -28,27 +40,43 @@
     <section class="block animate-slideup">
       <h2>Эфиры и посты</h2>
       <div class="info-card accent-glow">
-        <p>На этой странице публикуются анонсы эфиров, конкурсные посты, итоги мероприятий и важные новости жизни «ТРК Ритм».</p>
+        <p>📻 На этой странице публикуются анонсы эфиров, конкурсные посты, итоги мероприятий и важные новости жизни «ТРК Ритм».</p>
       </div>
     </section>
     
     <section class="block" id="posts-list">
       <h3>Лента постов</h3>
       <div id="posts-container" class="posts-grid">
-        <div class="posts-loading">Загрузка постов...</div>
+        <!-- Пример статической карточки -->
+        <article class="post-card">
+          <h4>🎙 Эфир с гостем</h4>
+          <p>В пятницу в 19:00 ждём вас на прямом эфире с представителями администрации.</p>
+          <span class="post-date">15.10.2025</span>
+        </article>
+        <article class="post-card">
+          <h4>🏆 Итоги конкурса</h4>
+          <p>Опубликованы победители конкурса «Мем недели». Поздравляем участников!</p>
+          <span class="post-date">12.10.2025</span>
+        </article>
+        <!-- Здесь JS будет подгружать новые посты -->
       </div>
     </section>
     
     <section class="block" id="archive">
       <h3>Архив эфиров и постов</h3>
       <p>Вся история публикаций вашей любимой радиостанции — для вдохновения и ностальгии!</p>
+      <ul class="archive-list">
+        <li><a href="#">2025</a></li>
+        <li><a href="#">2024</a></li>
+        <li><a href="#">2023</a></li>
+      </ul>
     </section>
   </main>
   
   <footer class="footer soft-bg animate-fadein-delay">
     <div>2025 &copy; ТРК Ритм • Radmir CRMP, 11 сервер</div>
     <div class="footer-links">
-       <a href="https://forum.radmir.games/redirect/?url=https%253A%252F%252Fdiscord.gg%252FNsTT6XS" target="_blank" rel="noopener">Discord</a>
+      <a href="https://discord.gg/NsTT6XS" target="_blank" rel="noopener">Discord</a>
       <a href="https://forum.radmir.games/forums/%D0%A2%D0%A0%D0%9A-%C2%AB%D0%A0%D0%B8%D1%82%D0%BC%C2%BB.514/" target="_blank" rel="noopener">Forum</a>
     </div>
   </footer>
